@@ -1,4 +1,4 @@
-import { MapPin, CloudSun, ChevronRight, Bus, Calendar, GraduationCap, sparkles } from "lucide-react"
+import { MapPin, CloudSun, ChevronRight, Bus, Calendar, GraduationCap, Sparkles } from "lucide-react"
 import { BottomNav } from "@/components/bottom-nav"
 import { Button } from "@/components/ui/button"
 

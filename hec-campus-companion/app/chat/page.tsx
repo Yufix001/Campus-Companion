@@ -8,7 +8,23 @@ import { useState, useRef, useEffect } from 'react'
 import { cn } from "@/lib/utils"
 
 export default function ChatPage() {
-    const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat()
+    const { messages, sendMessage, status } = useChat()
+    const isLoading = status === 'submitted' || status === 'streaming'
+
+    const [input, setInput] = useState('')
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setInput(e.target.value)
+    }
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+        if (!input.trim()) return
+
+        // Vercel AI SDK v6+ uses sendMessage with text property
+        await sendMessage({ text: input })
+        setInput('')
+    }
     const messagesEndRef = useRef<HTMLDivElement>(null)
 
     // Feedback state
@@ -21,6 +37,15 @@ export default function ChatPage() {
     useEffect(() => {
         scrollToBottom()
     }, [messages])
+
+    // Helper to extract text from message parts (SDK v6+)
+    const getMessageContent = (m: any) => {
+        if (typeof m.content === 'string') return m.content;
+        if (Array.isArray(m.parts)) {
+            return m.parts.filter((p: any) => p.type === 'text').map((p: any) => p.text).join('')
+        }
+        return ''
+    }
 
     const handleTicketCreation = async (messageContent: string, aiResponse: string) => {
         setFeedbackStatus('Creating ticket...')
@@ -65,88 +90,91 @@ export default function ChatPage() {
                     </div>
                 )}
 
-                {messages.map((m, index) => (
-                    <div key={m.id} className={cn("flex flex-col gap-1 max-w-[85%]", m.role === 'user' ? "ml-auto items-end" : "mr-auto")}>
-                        <div className={cn("flex items-center gap-2 mb-1", m.role === 'user' ? "pr-1" : "pl-1")}>
-                            {m.role === 'user' ? (
-                                <>
-                                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">You</span>
-                                    <div className="h-6 w-6 rounded-full border border-slate-100 overflow-hidden">
-                                        <div className="h-full w-full bg-slate-200"></div>
-                                    </div>
-                                </>
-                            ) : (
-                                <>
-                                    <div className="h-6 w-6 bg-[#0e63be]/10 rounded-full flex items-center justify-center">
-                                        <Sparkles size={14} className="text-[#0e63be]" />
-                                    </div>
-                                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Assistant</span>
-                                </>
-                            )}
-                        </div>
+                {messages.map((m, index) => {
+                    const content = getMessageContent(m);
+                    return (
+                        <div key={m.id} className={cn("flex flex-col gap-1 max-w-[85%]", m.role === 'user' ? "ml-auto items-end" : "mr-auto")}>
+                            <div className={cn("flex items-center gap-2 mb-1", m.role === 'user' ? "pr-1" : "pl-1")}>
+                                {m.role === 'user' ? (
+                                    <>
+                                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">You</span>
+                                        <div className="h-6 w-6 rounded-full border border-slate-100 overflow-hidden">
+                                            <div className="h-full w-full bg-slate-200"></div>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <>
+                                        <div className="h-6 w-6 bg-[#0e63be]/10 rounded-full flex items-center justify-center">
+                                            <Sparkles size={14} className="text-[#0e63be]" />
+                                        </div>
+                                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Assistant</span>
+                                    </>
+                                )}
+                            </div>
 
-                        <div className={cn(
-                            "shadow-sm rounded-[4px] p-4 text-sm leading-relaxed font-serif",
-                            m.role === 'user' ? "bg-[#0e63be] text-white rounded-tr-none" : "bg-white border border-slate-100 text-slate-700 rounded-tl-none"
-                        )}>
-                            <div className="whitespace-pre-wrap">
-                                {/* Simple citation parsing logic: look for [1], [2] etc */}
-                                {m.content.split(/(\[\d+\])/g).map((part, i) => {
-                                    if (/^\[\d+\]$/.test(part)) {
-                                        return (
-                                            <span key={i} className={cn(
-                                                "inline-flex items-center justify-center font-bold text-[10px] px-1 rounded ml-0.5 align-top cursor-pointer transition-colors",
-                                                m.role === 'user' ? "text-white bg-white/20 hover:bg-white/30" : "text-[#0e63be] bg-[#0e63be]/5 hover:bg-[#0e63be]/10"
-                                            )}>
-                                                {part}
-                                            </span>
-                                        )
-                                    }
-                                    return part
-                                })}
+                            <div className={cn(
+                                "shadow-sm rounded-[4px] p-4 text-sm leading-relaxed font-serif",
+                                m.role === 'user' ? "bg-[#0e63be] text-white rounded-tr-none" : "bg-white border border-slate-100 text-slate-700 rounded-tl-none"
+                            )}>
+                                <div className="whitespace-pre-wrap">
+                                    {/* Simple citation parsing logic: look for [1], [2] etc */}
+                                    {content.split(/(\[\d+\])/g).map((part: string, i: number) => {
+                                        if (/^\[\d+\]$/.test(part)) {
+                                            return (
+                                                <span key={i} className={cn(
+                                                    "inline-flex items-center justify-center font-bold text-[10px] px-1 rounded ml-0.5 align-top cursor-pointer transition-colors",
+                                                    m.role === 'user' ? "text-white bg-white/20 hover:bg-white/30" : "text-[#0e63be] bg-[#0e63be]/5 hover:bg-[#0e63be]/10"
+                                                )}>
+                                                    {part}
+                                                </span>
+                                            )
+                                        }
+                                        return part
+                                    })}
+                                </div>
+
+                                {m.role === 'assistant' && (
+                                    <div className="pt-3 flex items-center justify-between border-t border-slate-50 mt-2">
+                                        <div className="flex gap-2">
+                                            {/* Mock PDF Reference Button */}
+                                            <button className="h-6 px-2 bg-slate-50 border border-slate-100 rounded text-[9px] font-bold text-slate-500 uppercase tracking-tight hover:bg-slate-100 transition-colors flex items-center gap-1">
+                                                <span className="text-[10px]">📄</span> PDF Reference
+                                            </button>
+                                        </div>
+                                        <div className="flex gap-2">
+                                            <button className="text-slate-300 hover:text-[#0e63be] transition-colors p-1"><Copy size={16} /></button>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
 
                             {m.role === 'assistant' && (
-                                <div className="pt-3 flex items-center justify-between border-t border-slate-50 mt-2">
-                                    <div className="flex gap-2">
-                                        {/* Mock PDF Reference Button */}
-                                        <button className="h-6 px-2 bg-slate-50 border border-slate-100 rounded text-[9px] font-bold text-slate-500 uppercase tracking-tight hover:bg-slate-100 transition-colors flex items-center gap-1">
-                                            <span className="text-[10px]">📄</span> PDF Reference
-                                        </button>
-                                    </div>
-                                    <div className="flex gap-2">
-                                        <button className="text-slate-300 hover:text-[#0e63be] transition-colors p-1"><Copy size={16} /></button>
+                                <div className="flex items-center justify-between px-2 pt-1 opacity-80 hover:opacity-100 transition-opacity w-full">
+                                    <div className="flex items-center gap-3">
+                                        <span className={cn("text-[10px] font-medium uppercase tracking-widest", feedbackStatus ? "text-[#0e63be]" : "text-slate-400")}>
+                                            {feedbackStatus || "Was this helpful?"}
+                                        </span>
+                                        {!feedbackStatus && (
+                                            <div className="flex gap-1">
+                                                <button aria-label="Thumbs up" className="p-1 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors group">
+                                                    <ThumbsUp size={18} className="group-hover:scale-110 transition-transform" />
+                                                </button>
+                                                <button
+                                                    aria-label="Report issue"
+                                                    onClick={() => handleTicketCreation(getMessageContent(messages[index - 1] || {}), content)}
+                                                    className="p-1 rounded-full hover:bg-red-50 text-slate-400 hover:text-red-500 transition-colors group"
+                                                    title="Report issue / Create Ticket"
+                                                >
+                                                    <ThumbsDown size={18} className="group-hover:scale-110 transition-transform" />
+                                                </button>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             )}
                         </div>
-
-                        {m.role === 'assistant' && (
-                            <div className="flex items-center justify-between px-2 pt-1 opacity-80 hover:opacity-100 transition-opacity w-full">
-                                <div className="flex items-center gap-3">
-                                    <span className={cn("text-[10px] font-medium uppercase tracking-widest", feedbackStatus ? "text-[#0e63be]" : "text-slate-400")}>
-                                        {feedbackStatus || "Was this helpful?"}
-                                    </span>
-                                    {!feedbackStatus && (
-                                        <div className="flex gap-1">
-                                            <button aria-label="Thumbs up" className="p-1 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors group">
-                                                <ThumbsUp size={18} className="group-hover:scale-110 transition-transform" />
-                                            </button>
-                                            <button
-                                                aria-label="Report issue"
-                                                onClick={() => handleTicketCreation(messages[index - 1]?.content || "Unknown Query", m.content)}
-                                                className="p-1 rounded-full hover:bg-red-50 text-slate-400 hover:text-red-500 transition-colors group"
-                                                title="Report issue / Create Ticket"
-                                            >
-                                                <ThumbsDown size={18} className="group-hover:scale-110 transition-transform" />
-                                            </button>
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-                        )}
-                    </div>
-                ))}
+                    )
+                })}
 
                 {isLoading && (
                     <div className="flex flex-col gap-1 max-w-[85%] mr-auto">
