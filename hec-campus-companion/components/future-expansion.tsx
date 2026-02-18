@@ -19,9 +19,9 @@ export function FutureExpansion() {
                                 <div className="w-[160px] h-[80px] relative flex-shrink-0 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center">
                                     <Image src="/assets/hec-paris.svg" alt="HEC Paris" width={160} height={80} className="object-contain max-h-[70px] w-auto" />
                                 </div>
-                                {/* Polytechnique - Updated to "Université Paris-Saclay" version (X logo) */}
+                                {/* Poly - Reverted to "Signature" SVG as "Paris-Saclay" SVG was corrupted. This one is high quality. */}
                                 <div className="w-[160px] h-[80px] relative flex-shrink-0 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center">
-                                    <Image src="/assets/polytechnique-saclay.svg" alt="École Polytechnique" width={160} height={80} className="object-contain max-h-[75px] w-auto" />
+                                    <Image src="/assets/polytechnique-signature.svg" alt="École Polytechnique" width={160} height={80} className="object-contain max-h-[70px] w-auto" />
                                 </div>
                                 {/* ENSTA - Horizontal */}
                                 <div className="w-[160px] h-[80px] relative flex-shrink-0 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center">
@@ -35,9 +35,9 @@ export function FutureExpansion() {
                                 <div className="w-[160px] h-[80px] relative flex-shrink-0 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center">
                                     <Image src="/assets/ponts-paristech.svg" alt="École des Ponts ParisTech" width={140} height={70} className="object-contain max-h-[65px] w-auto" />
                                 </div>
-                                {/* Institut Mines-Télécom (IMT) - Replaces separate Telecom Paris & SudParis schools */}
+                                {/* Institut Mines-Télécom (IMT) - Using reliable PNG icon. Constraint to square-ish aspect ratio if typical. */}
                                 <div className="w-[160px] h-[80px] relative flex-shrink-0 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center">
-                                    <Image src="/assets/imt-logo.svg" alt="Institut Mines-Télécom" width={160} height={80} className="object-contain max-h-[70px] w-auto" />
+                                    <Image src="/assets/imt-icon.png" alt="Institut Mines-Télécom" width={80} height={80} className="object-contain max-h-[70px] w-auto" />
                                 </div>
                             </div>
                         ))}
