@@ -47,9 +47,9 @@ export default function LandingPage() {
                         <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#07305B]/60">Virtual Assistant active</span>
                     </div>
 
-                    <h1 className="font-serif text-5xl md:text-7xl text-[#07305B] leading-[1.05] font-medium tracking-tight">
-                        Excellence in<br />
-                        <span className="italic text-accent">your pocket.</span>
+                    <h1 className="font-serif text-[44px] text-[#07305B] leading-[1.05] font-medium tracking-tight mb-2">
+                        Answers for everyday campus life — <br />
+                        <span className="italic text-accent">in your pocket.</span>
                     </h1>
 
                     <p className="text-[#07305B]/60 text-sm md:text-base max-w-md leading-relaxed">
