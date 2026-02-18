@@ -46,8 +46,8 @@ export default function LandingPage() {
                         <span className="italic text-accent">in your pocket.</span>
                     </h1>
                     <Link href="/chat">
-                        <Button className="bg-[#07305B] text-white text-xs font-bold uppercase tracking-widest px-8 py-4 sharp-corners h-auto rounded-none hover:bg-[#07305B]/90 shadow-xl shadow-[#07305B]/20 transition-transform active:scale-95">
-                            Ask a question
+                        <Button className="bg-gradient-to-r from-[#07305B] to-accent text-white text-sm font-bold uppercase tracking-widest px-10 py-7 sharp-corners h-auto rounded-none hover:opacity-90 shadow-lg shadow-accent/20 transition-all hover:scale-[1.02] active:scale-95">
+                            Start Chatting
                         </Button>
                     </Link>
                 </header>

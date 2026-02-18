@@ -11,10 +11,14 @@ export function FutureExpansion() {
                 <span className="text-[10px] font-bold uppercase tracking-widest text-[#07305B]/40 mb-8">Future Expansions</span>
 
                 {/* Logo Marquee */}
-                <div className="relative w-full overflow-hidden mb-12 group" style={{ maskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)" }}>
+                <div className="relative w-full overflow-hidden mb-12 group" style={{ maskImage: "linear-gradient(to right, transparent, black 20%, black 80%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 20%, black 80%, transparent)" }}>
                     <div className="flex w-[200%] animate-marquee group-hover:[animation-play-state:paused] items-center">
                         {/* First Set */}
-                        <div className="flex w-1/2 justify-around items-center px-4 gap-12">
+                        <div className="flex w-1/2 justify-around items-center px-4 gap-16">
+                            {/* HEC Logo Placeholder - Text Based since asset is missing */}
+                            <div className="w-24 h-12 relative flex-shrink-0 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                                <span className="font-serif font-bold text-xl text-[#07305B]">HEC</span>
+                            </div>
                             <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                                 <Image src="/assets/polytechnique.png" alt="Polytechnique" fill className="object-contain" />
                             </div>
@@ -32,7 +36,11 @@ export function FutureExpansion() {
                             </div>
                         </div>
                         {/* Second Set (Duplicate) */}
-                        <div className="flex w-1/2 justify-around items-center px-4 gap-12">
+                        <div className="flex w-1/2 justify-around items-center px-4 gap-16">
+                            {/* HEC Logo Placeholder */}
+                            <div className="w-24 h-12 relative flex-shrink-0 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                                <span className="font-serif font-bold text-xl text-[#07305B]">HEC</span>
+                            </div>
                             <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                                 <Image src="/assets/polytechnique.png" alt="Polytechnique" fill className="object-contain" />
                             </div>
