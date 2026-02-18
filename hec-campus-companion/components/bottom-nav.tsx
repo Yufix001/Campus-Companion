@@ -71,7 +71,7 @@ export function BottomNav() {
 
     // Default Landing Page Nav
     return (
-        <div className="fixed bottom-0 left-0 w-full glass-panel border-t border-[#07305B]/5 py-3 px-6 z-[60]">
+        <div className="md:hidden fixed bottom-0 left-0 w-full glass-panel border-t border-[#07305B]/5 py-3 px-6 z-[60]">
             <div className="max-w-md mx-auto flex justify-between items-center">
                 <Link href="/" className="flex flex-col items-center gap-1 text-[#07305B]">
                     <Home size={24} />

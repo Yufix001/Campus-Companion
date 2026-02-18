@@ -1,5 +1,5 @@
 import { CloudSun, Train, ArrowRight, Rss, Grid, Map, ChevronRight, Search } from "lucide-react"
-
+import { BottomNav } from "@/components/bottom-nav"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { WeatherWidget } from "@/components/weather-widget"
@@ -8,12 +8,12 @@ import { TransportWidget } from "@/components/transport-widget"
 
 export default function LandingPage() {
     return (
-        <div className="font-display relative overflow-x-hidden min-h-screen bg-[#F5F5F5] pb-10">
+        <div className="font-display relative overflow-x-hidden min-h-screen bg-[#F5F5F5] pb-24 md:pb-10">
             {/* Top Bar Background */}
             <div className="fixed top-0 left-0 w-full h-1 bg-[#07305B] z-[60]"></div>
             <div className="fixed top-[-5%] right-[-5%] w-[40%] h-[30%] rounded-full bg-[#07305B]/5 blur-[100px] pointer-events-none z-0"></div>
 
-            {/* Floating Pill Navigation */}
+            {/* Floating Pill Navigation - Visible on all screens, but simplified on mobile via responsiveness in content */}
             <nav className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
                 <div className="pointer-events-auto glass-panel rounded-full px-2 py-2 pl-4 flex items-center justify-between shadow-xl backdrop-blur-md bg-white/70 border border-white/40 w-full max-w-2xl transition-all hover:bg-white/90 hover:shadow-2xl">
                     {/* Logo */}
@@ -22,7 +22,7 @@ export default function LandingPage() {
                         <span className="font-serif font-bold text-lg tracking-tight text-[#07305B] hidden sm:block">HEC Paris</span>
                     </div>
 
-                    {/* Center Links (Desktop) */}
+                    {/* Center Links (Desktop Only) */}
                     <div className="hidden md:flex items-center gap-8 bg-[#07305B]/5 rounded-full px-6 py-2.5 mx-4 border border-[#07305B]/5">
                         <Link href="#" className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#07305B]/60 hover:text-[#07305B] transition-colors">Home</Link>
                         <Link href="#" className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#07305B]/60 hover:text-[#07305B] transition-colors">About</Link>
@@ -40,7 +40,7 @@ export default function LandingPage() {
                 </div>
             </nav>
 
-            <main className="relative z-10 w-full max-w-md md:max-w-2xl lg:max-w-4xl mx-auto px-4 flex flex-col gap-8 pt-32">
+            <main className="relative z-10 w-full max-w-md md:max-w-2xl lg:max-w-4xl mx-auto px-4 flex flex-col gap-8 pt-28 md:pt-32">
                 <header className="flex flex-col items-center text-center gap-6 mb-8">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#07305B]/5 border border-[#07305B]/10">
                         <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
@@ -160,6 +160,8 @@ export default function LandingPage() {
                     </div>
                 </footer>
             </main>
+
+            <BottomNav />
         </div >
     )
 }
