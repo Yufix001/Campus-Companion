@@ -60,18 +60,9 @@ export default function LandingPage() {
                     {/* Transport Widget */}
                     <TransportWidget variant="sidebar" />
 
-                    {/* News Widget */}
-                    <div className="col-span-2 editorial-border bg-white p-4 flex flex-col justify-between h-full sharp-corners">
-                        <div className="flex justify-between items-start mb-2">
-                            <span className="text-[10px] font-bold uppercase tracking-widest text-accent">Campus News</span>
-                            <ChevronRight size={16} className="text-[#07305B]/40" />
-                        </div>
-                        <div>
-                            <h4 className="font-serif text-lg leading-tight mb-1 text-[#07305B]">2024 Global Ranking Achievement</h4>
-                            <p className="text-[10px] text-[#07305B]/60 leading-relaxed line-clamp-1 italic">Discover how HEC Paris continues to lead international excellence in business education.</p>
-                        </div>
-                    </div>
                 </section>
+
+                <FutureExpansion />
 
                 <section className="flex flex-col gap-6">
                     {/* Prospective Students Card */}
