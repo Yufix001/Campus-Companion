@@ -2,6 +2,7 @@ import { MapPin, CloudSun, ChevronRight, Bus, Calendar, GraduationCap, Sparkles 
 import { BottomNav } from "@/components/bottom-nav"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { ShuttleBanner } from "@/components/shuttle-banner"
 
 export default function PortalPage() {
     return (
@@ -26,6 +27,8 @@ export default function PortalPage() {
             </header>
 
             <main className="px-6 space-y-6">
+                <ShuttleBanner />
+
                 {/* Ask HEC Assistant */}
                 <div className="py-6 flex flex-col items-center justify-center">
                     <Link href="/chat" className="glass-btn group relative flex items-center justify-center w-full max-w-sm h-20 rounded-xl border border-[#07305B] transition-all duration-300 active:scale-[0.98] bg-white/25 backdrop-blur-md shadow-[0_4px_20px_rgba(7,48,91,0.1)] appearance-none">
