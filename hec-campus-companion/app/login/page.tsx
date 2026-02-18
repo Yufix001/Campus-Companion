@@ -1,4 +1,5 @@
 "use client"
+// Deployment trigger: Refactored Auth Flow v2
 
 import { useState } from "react"
 import { createBrowserClient } from "@supabase/ssr"
