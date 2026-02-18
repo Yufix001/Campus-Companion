@@ -20,7 +20,7 @@ export default function LandingPage() {
                             <div className="h-0.5 w-full bg-[#07305B]"></div>
                             <div className="h-0.5 w-full bg-[#07305B]"></div>
                         </div>
-                        <div className="font-serif font-bold text-lg tracking-tighter uppercase text-[#07305B]">HEC Paris</div>
+                        <div className="font-serif font-bold text-lg tracking-tighter uppercase text-[#07305B]">Campus Companion</div>
                     </div>
                     <div className="flex items-center gap-4">
                         <Link href="/portal">
@@ -35,13 +35,18 @@ export default function LandingPage() {
             <main className="relative z-10 w-full max-w-md mx-auto px-4 flex flex-col gap-6">
                 <header className="mt-8 flex flex-col items-start gap-4">
                     <div className="flex flex-col">
-                        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#07305B]/60 mb-1">Global Portal</span>
-                        <h2 className="font-serif text-xl italic text-[#07305B]/80">Welcome to HEC Paris Companion</h2>
+                        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#07305B]/60 mb-1">VIRTUAL ASSISTANT</span>
+                        <h2 className="font-serif text-xl italic text-[#07305B]/80">Welcome to HEC</h2>
                     </div>
-                    <h1 className="font-serif text-[44px] text-[#07305B] leading-[1.05] font-medium tracking-tight">
-                        All the information <br />
-                        <span className="italic text-accent">you need in your pocket.</span>
+                    <h1 className="font-serif text-[44px] text-[#07305B] leading-[1.05] font-medium tracking-tight mb-2">
+                        Answers for everyday campus life — <br />
+                        <span className="italic text-accent">in your pocket.</span>
                     </h1>
+                    <Link href="/chat">
+                        <Button className="bg-[#07305B] text-white text-xs font-bold uppercase tracking-widest px-8 py-4 sharp-corners h-auto rounded-none hover:bg-[#07305B]/90 shadow-xl shadow-[#07305B]/20 transition-transform active:scale-95">
+                            Ask a question
+                        </Button>
+                    </Link>
                 </header>
 
                 <section className="grid grid-cols-2 gap-3">
