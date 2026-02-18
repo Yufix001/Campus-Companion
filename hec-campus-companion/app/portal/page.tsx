@@ -3,6 +3,7 @@ import { BottomNav } from "@/components/bottom-nav"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ShuttleBanner } from "@/components/shuttle-banner"
+import { WeatherWidget } from "@/components/weather-widget"
 
 export default function PortalPage() {
     return (
@@ -15,8 +16,7 @@ export default function PortalPage() {
                             <MapPin size={18} />
                             <span>Jouy-en-Josas</span>
                             <span className="mx-1 opacity-50">•</span>
-                            <CloudSun size={18} className="text-amber-500" />
-                            <span>12°C</span>
+                            <WeatherWidget compact={true} />
                         </div>
                     </div>
                     <div className="w-12 h-12 rounded-full overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm">

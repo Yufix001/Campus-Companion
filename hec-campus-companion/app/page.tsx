@@ -2,6 +2,7 @@ import { CloudSun, Train, ArrowRight, Rss, Grid, Map, ChevronRight, Search } fro
 import { BottomNav } from "@/components/bottom-nav"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { WeatherWidget } from "@/components/weather-widget"
 
 export default function LandingPage() {
     return (
@@ -51,16 +52,7 @@ export default function LandingPage() {
 
                 <section className="grid grid-cols-2 gap-3">
                     {/* Weather Widget */}
-                    <div className="editorial-border bg-[#07305B] text-white p-4 flex flex-col justify-between h-full sharp-corners border-none">
-                        <div className="flex justify-between items-start">
-                            <CloudSun size={20} />
-                            <span className="text-[10px] font-bold uppercase tracking-widest opacity-70">Jouy-en-Josas</span>
-                        </div>
-                        <div className="mt-4">
-                            <div className="text-2xl font-serif font-medium">14°C</div>
-                            <div className="text-[10px] opacity-80 uppercase tracking-tighter">Mostly Clear</div>
-                        </div>
-                    </div>
+                    <WeatherWidget />
 
                     {/* Transport Widget */}
                     <a href="https://www.bonjour-ratp.fr/horaires-transilien/ligne-v/jouy-en-josas/" target="_blank" rel="noopener noreferrer" className="editorial-border bg-white p-4 flex flex-col justify-between h-full sharp-corners no-underline hover:bg-slate-50 transition-colors">
