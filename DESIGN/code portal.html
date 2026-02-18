@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HEC Campus Companion</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Inter:wght@300;400;500;600&amp;family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#07305B", // Deep HEC Blue
+                        "hec-blue": "#0048E5", // Bright Blue
+                        "background-light": "#F9F9F7", // Liquid Luxury Cream
+                        "background-dark": "#0F172A",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1E293B",
+                        "border-lux": "#07305B",
+                    },
+                    fontFamily: {
+                        display: ["Playfair Display", "serif"],
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "4px", // Sharp corners per request
+                        'sm': '2px',
+                        'md': '4px',
+                        'lg': '8px',
+                        'xl': '12px',
+                        '2xl': '16px',
+                        '3xl': '24px',
+                        'full': '9999px',
+                    },
+                    boxShadow: {
+                        'glass-lux': '0 8px 32px 0 rgba(7, 48, 91, 0.15)',
+                        'inner-glow': 'inset 0 0 20px 0 rgba(255, 255, 255, 0.5)',
+                    }
+                },
+            },
+        };
+    </script>
+<style>
+        .material-symbols-rounded {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .liquid-shadow {
+            box-shadow: 0 10px 30px -5px rgba(0, 72, 229, 0.1), 0 4px 12px -4px rgba(0, 0, 0, 0.05);
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.9);
+            border-top: 1px solid rgba(255,255,255,0.8);
+        }
+        .dark .glass-nav {
+            background-color: rgba(15, 23, 42, 0.85);
+        }.glass-btn {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 4px 20px rgba(7, 48, 91, 0.1), inset 0 0 15px rgba(255, 255, 255, 0.6);
+        }
+        .glass-btn:active {
+            background: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-sans antialiased min-h-screen">
+<header class="px-6 pt-8 pb-4">
+<div class="flex justify-between items-start">
+<div>
+<h1 class="font-display text-3xl mb-1 text-primary dark:text-white tracking-tight">Good afternoon, Marc</h1>
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm font-medium">
+<span class="material-symbols-rounded text-lg">location_on</span>
+<span>Jouy-en-Josas</span>
+<span class="mx-1 opacity-50">•</span>
+<span class="material-symbols-rounded text-lg text-amber-500">partly_cloudy_day</span>
+<span>12°C</span>
+</div>
+</div>
+<div class="w-12 h-12 rounded-full overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm">
+<img alt="Profile of Marc" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAA7bF3uOpnul4xJyp-GBJUXjCxf0CGQZZFMoKkzy9KUJIo0GyCv6T1-3njjQoSlELbZOiPjObJUrHRsVNP3jFrwI8jijACNSkTK75MMlcu8wGCFGfGdM3L0Hnlb61kxLvJTQx5LrDfak-oipXWP27rQgrX-wWr-y_gKMK4jyprdBqH9hubX0FSQObF5mKcwJCFfLRPupVEx9eIoEElt2DhdJ4H-YdiNPsMhSwjwcuIH5JKa9fXdC0-SI9UlCZoWFMEnIf-vzOj0s4"/>
+</div>
+</div>
+</header>
+<main class="px-6 space-y-6 pb-32">
+<div class="py-6 flex flex-col items-center justify-center">
+<button class="glass-btn group relative flex items-center justify-center w-full max-w-sm h-20 rounded-xl border border-[#07305B] transition-all duration-300 active:scale-[0.98]">
+<div class="flex items-center gap-4">
+<div class="bg-primary/10 p-2.5 rounded-full group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-rounded text-[#07305B] text-3xl">auto_awesome</span>
+</div>
+<div class="text-left">
+<span class="block text-[#07305B] font-display font-bold text-lg leading-tight">Ask HEC Assistant</span>
+<span class="block text-slate-500 text-xs font-medium">AI-Powered Campus Guide</span>
+</div>
+</div>
+<div class="absolute inset-0 rounded-xl bg-gradient-to-tr from-white/40 to-transparent opacity-50 pointer-events-none"></div>
+</button>
+<p class="mt-4 text-slate-400 dark:text-slate-500 text-xs italic font-light tracking-wide text-center max-w-xs mx-auto">"What is the schedule for Strategic Marketing?"</p>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-0 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+<div class="p-5 flex items-center justify-between group cursor-pointer hover:bg-slate-50 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-[#0048E5]/10 text-[#0048E5] dark:text-emerald-400 rounded-lg flex items-center justify-center border border-[#0048E5]/20">
+<span class="font-bold font-display text-lg">V</span>
+</div>
+<div>
+<h3 class="font-semibold text-slate-900 dark:text-white text-sm">Ligne V</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400">Normal service</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
+<span class="material-symbols-rounded text-slate-300 text-xl">chevron_right</span>
+</div>
+</div>
+<div class="h-[1px] bg-slate-100 dark:bg-slate-800 w-full mx-auto"></div>
+<div class="p-5 flex items-center justify-between group cursor-pointer hover:bg-slate-50 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-slate-100 text-slate-700 rounded-lg flex items-center justify-center border border-slate-200">
+<span class="material-symbols-rounded text-xl">directions_bus</span>
+</div>
+<div>
+<h3 class="font-semibold text-slate-900 dark:text-white text-sm">SAVAC Shuttle Schedule</h3>
+<p class="text-xs text-[#0048E5] font-medium">Next departure in 12 mins</p>
+</div>
+</div>
+<span class="material-symbols-rounded text-slate-300 text-xl">chevron_right</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-card-light dark:bg-card-dark p-5 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between h-32 relative overflow-hidden group shadow-sm">
+<div class="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-rounded text-8xl">calendar_month</span>
+</div>
+<span class="material-symbols-rounded text-[#07305B] text-2xl mb-2">calendar_month</span>
+<span class="font-display font-semibold text-slate-900 dark:text-white">Room<br/>Booking</span>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-5 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between h-32 relative overflow-hidden group shadow-sm">
+<div class="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-rounded text-8xl">school</span>
+</div>
+<span class="material-symbols-rounded text-[#07305B] text-2xl mb-2">school</span>
+<span class="font-display font-semibold text-slate-900 dark:text-white">Grade<br/>Transcript</span>
+</div>
+</div>
+</main>
+<div class="fixed bottom-6 left-6 right-6 z-50">
+<nav class="glass-nav rounded-2xl p-1.5 shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex items-center justify-between relative">
+<a class="flex flex-col items-center justify-center flex-1 py-3 text-slate-400 dark:text-slate-500 hover:text-[#07305B] transition-colors" href="#">
+<span class="material-symbols-rounded">chat_bubble</span>
+<span class="text-[9px] mt-1 uppercase tracking-wider font-semibold">Chat</span>
+</a>
+<a class="flex flex-col items-center justify-center flex-1 py-3 text-slate-400 dark:text-slate-500 hover:text-[#07305B] transition-colors" href="#">
+<span class="material-symbols-rounded">calendar_today</span>
+<span class="text-[9px] mt-1 uppercase tracking-wider font-semibold">Schedule</span>
+</a>
+<div class="relative -top-8 px-2">
+<button class="w-14 h-14 bg-[#07305B] rounded-full shadow-lg shadow-[#07305B]/30 flex items-center justify-center text-white border-[3px] border-white dark:border-background-dark transform transition-transform hover:scale-105 active:scale-95">
+<span class="material-symbols-rounded text-2xl">auto_awesome</span>
+</button>
+</div>
+<a class="flex flex-col items-center justify-center flex-1 py-3 text-slate-400 dark:text-slate-500 hover:text-[#07305B] transition-colors" href="#">
+<span class="material-symbols-rounded">map</span>
+<span class="text-[9px] mt-1 uppercase tracking-wider font-semibold">Campus</span>
+</a>
+<a class="flex flex-col items-center justify-center flex-1 py-3 text-slate-400 dark:text-slate-500 hover:text-[#07305B] transition-colors" href="#">
+<span class="material-symbols-rounded">person</span>
+<span class="text-[9px] mt-1 uppercase tracking-wider font-semibold">Profile</span>
+</a>
+</nav>
+</div>
+</body></html>

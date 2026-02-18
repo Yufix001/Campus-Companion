@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Ticket Resolver</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "hec-blue": "#002b5c",
+                        "hec-gold": "#c6a87c",
+                        "background-light": "#fcfcfc",
+                    },
+                    fontFamily: {
+                        "serif": ["Playfair Display", "serif"],
+                        "sans": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "4px",
+                        "sm": "2px",
+                        "md": "4px",
+                        "lg": "4px",
+                    },
+                    boxShadow: {
+                        'institutional': '0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1)',
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            background-color: #fcfcfc;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-scroller::-webkit-scrollbar {
+            display: none;
+        }
+        .sharp-card {
+            border-radius: 4px;
+        }
+        .locked-tab {
+            opacity: 0.6;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-sans text-slate-900 antialiased h-screen flex flex-col overflow-hidden bg-slate-50/50">
+<header class="flex items-center justify-between px-4 py-3 bg-white border-b border-slate-200 shrink-0 z-20 shadow-sm">
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center text-hec-blue">
+<span class="material-symbols-outlined font-light">menu</span>
+</button>
+<div>
+<h1 class="text-sm font-serif font-bold text-hec-blue tracking-tight leading-none">Admin Ticket Resolver</h1>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Institutional Dashboard</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center overflow-hidden border border-slate-200 shadow-sm">
+<img alt="Admin Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5cmhdeDYlXmFmx5wbwm-Lw-H5593p9US_yCL7FHAFfxbUA0zp6ia3W3NS5tSDKG0rPUgEVv5lFBPpKJFEsR05VgjFyqpb8JnP5HX3zrhDXwN-s8W19zAeS8Ob5UV8tsNQGSMK40trNPUCkPmw39FngO4xOdHiMvqisos6nHqw8Raf9aKKq2K7ytPogEbahviJoauZ1OHU0BS5SGusc92fqSWebMjSz5611WKixxGhZKo0CdRZcNviHP9ESoMyP67CAsLPougwCHQ"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden relative">
+<nav class="hidden md:flex w-20 flex-col bg-white border-r border-slate-200 items-center py-6 gap-8 z-10">
+<span class="material-symbols-outlined text-hec-blue">dashboard</span>
+<span class="material-symbols-outlined text-hec-blue">confirmation_number</span>
+<div class="flex flex-col items-center gap-1 locked-tab mt-auto pb-4">
+<span class="material-symbols-outlined text-slate-400">lock</span>
+<span class="text-[8px] font-bold text-slate-400 text-center uppercase">Intranet Agent</span>
+</div>
+</nav>
+<main class="flex-1 overflow-y-auto ios-scroller p-4 pb-32">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 h-full">
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between px-1">
+<h2 class="text-xs font-bold uppercase tracking-widest text-slate-400">Incoming Ticket</h2>
+<span class="text-[10px] text-slate-400 font-medium tracking-tight bg-white border border-slate-200 px-2 py-1 rounded-sm">ID: #HEC-8829</span>
+</div>
+<div class="bg-white border border-slate-200 sharp-card shadow-institutional flex flex-col h-fit">
+<div class="p-5 border-b border-slate-100">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-hec-blue text-lg">school</span>
+<span class="text-xs font-bold text-hec-blue uppercase tracking-wide">Student Query</span>
+</div>
+<h3 class="text-lg font-serif font-bold mb-2 text-slate-900">Registrar Access Error</h3>
+<p class="text-sm text-slate-600 leading-relaxed">
+                                "I cannot access my course registration page. The screen just shows an error message saying unauthorized after the latest system update. I need to register for the Strategy elective before 5 PM."
+                            </p>
+</div>
+<div class="bg-slate-50 p-4 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-hec-blue text-white flex items-center justify-center text-[10px] font-bold">JD</div>
+<div>
+<p class="text-[11px] font-bold text-slate-900 uppercase">J. Dubois</p>
+<p class="text-[9px] text-slate-500">MBA 2024 Candidate</p>
+</div>
+</div>
+<span class="text-[9px] text-slate-400 font-medium uppercase tracking-wider">Today, 14:02</span>
+</div>
+</div>
+<div class="bg-white border border-slate-200 sharp-card shadow-sm p-4 opacity-80">
+<div class="flex items-center justify-between mb-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Related Context</span>
+<span class="material-symbols-outlined text-slate-300 text-sm">history</span>
+</div>
+<p class="text-xs text-slate-500 italic">"Portal latency reported by 3 other students in the last hour."</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 h-full">
+<div class="flex items-center justify-between px-1 lg:hidden">
+<h2 class="text-xs font-bold uppercase tracking-widest text-slate-400">Response Console</h2>
+</div>
+<div class="flex flex-col h-full gap-4">
+<div class="bg-white border border-hec-blue/20 sharp-card shadow-institutional overflow-hidden flex-shrink-0">
+<div class="bg-hec-blue/5 px-4 py-3 border-b border-hec-blue/10 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-base">🪄</span>
+<span class="text-xs font-bold text-hec-blue uppercase tracking-wider">Agent Draft Suggestion</span>
+</div>
+<div class="flex gap-2">
+<button class="text-[10px] font-bold text-hec-blue/70 uppercase tracking-tighter hover:text-hec-blue transition-colors">Regenerate</button>
+</div>
+</div>
+<div class="p-5">
+<div class="font-serif text-slate-800 text-sm leading-relaxed space-y-4">
+<p class="font-bold text-hec-blue">Subject: Portal Access Resolution</p>
+<p>Dear Jean,</p>
+<p>We have processed your request regarding the access issues. Our support team has refreshed the permissions on your account following the recent maintenance cycle.</p>
+<p>Please log out and log back in to see the changes immediately.</p>
+<div class="pt-3 mt-2 border-t border-slate-100 text-slate-400 text-[10px] flex items-center gap-1 uppercase tracking-tight font-sans">
+<span class="material-symbols-outlined text-[12px]">verified_user</span>
+                                        AI Confidence: High (98%)
+                                    </div>
+</div>
+</div>
+</div>
+<div class="bg-white border border-slate-200 sharp-card shadow-institutional flex flex-col flex-grow">
+<div class="relative flex-grow min-h-[120px]">
+<textarea class="w-full h-full border-none p-4 text-sm focus:ring-0 placeholder:text-slate-400 resize-none font-sans" placeholder="Add personal comments to the draft..." rows="6"></textarea>
+</div>
+<div class="px-4 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between shrink-0">
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 text-slate-500 hover:text-hec-blue group transition-colors px-2 py-1 rounded hover:bg-slate-100">
+<span class="material-symbols-outlined text-xl rotate-45">attach_file</span>
+<span class="text-[10px] font-bold uppercase tracking-wider hidden sm:inline">Upload Document</span>
+</button>
+<button class="flex items-center gap-2 text-slate-400 hover:text-hec-blue group transition-colors px-2 py-1 rounded hover:bg-slate-100">
+<span class="material-symbols-outlined text-xl">format_bold</span>
+</button>
+<button class="flex items-center gap-2 text-slate-400 hover:text-hec-blue group transition-colors px-2 py-1 rounded hover:bg-slate-100">
+<span class="material-symbols-outlined text-xl">format_italic</span>
+</button>
+</div>
+<span class="text-[10px] text-slate-400 uppercase font-medium">Internal Note</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<footer class="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-slate-200 flex flex-col gap-3 z-30 shadow-[0_-4px_10px_rgba(0,0,0,0.03)]">
+<button class="w-full bg-hec-blue text-white py-4 font-serif font-bold text-base sharp-card shadow-lg active:scale-[0.99] transition-transform uppercase tracking-widest hover:bg-hec-blue/90 flex items-center justify-center gap-2">
+<span>Publish Response</span>
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+<div class="flex justify-center">
+<div class="w-32 h-1 bg-slate-200 rounded-full"></div>
+</div>
+</footer>
+
+</body></html>

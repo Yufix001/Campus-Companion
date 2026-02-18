@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HEC Assistant: Chat Feed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0e63be",
+                        "hec-blue": "#0e63be",
+                        "background-light": "#F8F9FB",
+                        "glass-white": "rgba(255, 255, 255, 0.95)",
+                        "hec-gold": "#C5A065",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "4px",
+                        "lg": "8px",
+                        "xl": "12px",
+                        "2xl": "16px",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'glass': '0 4px 12px 0 rgba(0, 0, 0, 0.05)',
+                        'soft': '0 2px 8px -2px rgba(0, 0, 0, 0.04)',
+                        'nav': '0 -4px 24px -2px rgba(0, 0, 0, 0.04)',
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .no-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            .glass-panel {
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+            }
+            .citation-tag {
+                @apply inline-flex items-center justify-center text-primary font-bold text-[10px] bg-primary/5 px-1 rounded ml-0.5 align-top cursor-pointer hover:bg-primary/10 transition-colors;
+            }
+        }
+        body {
+            min-height: 100dvh;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light font-display text-slate-800 overflow-x-hidden">
+<div class="fixed top-0 left-0 right-0 z-50 pt-12 pb-4 px-6 bg-white border-b border-slate-100 flex items-center justify-between shadow-soft">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">school</span>
+<h1 class="font-serif text-xl font-bold text-slate-900">HEC Assistant</h1>
+</div>
+<div class="h-10 w-10 rounded-full border border-slate-200 overflow-hidden">
+<img alt="Profile" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGhLGQ4T5rC5mqi731RVlVFIlg63CWn-zBhX-sXEqzswUsrNoqkgGcUbvZy175ZBO8da6_37-cspd7YqbwikZ1H8ZgLhPE6Eu1xghNDjRoqPV-sHJHbZ4B3s7T0CdPOi9dfoEwahEIStPwggZbKzRZ3sPyQ5l4qdqu0ZzGMniKaCOrc16ZT2KKnPo8GQfoYXnbQHQNUytX33TWJTKRuZH6dXljocXDGl0vBZOzWNcLyqeJ4jrg0gY8FcZwIU-3HCjalK2za1eOLNQ"/>
+</div>
+</div>
+<main class="pt-32 pb-48 px-4 max-w-2xl mx-auto space-y-8">
+<div class="flex justify-center">
+<span class="bg-white px-4 py-1.5 rounded-lg text-[11px] font-semibold text-slate-400 border border-slate-100 shadow-sm uppercase tracking-wider">Today, October 24</span>
+</div>
+<div class="flex flex-col gap-1 max-w-[85%] mr-auto">
+<div class="flex items-center gap-2 mb-1 pl-1">
+<div class="h-6 w-6 bg-primary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-primary">auto_awesome</span>
+</div>
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Assistant</span>
+</div>
+<div class="bg-white border border-slate-100 shadow-glass rounded-[4px] rounded-tl-none p-4">
+<p class="text-sm text-slate-700 leading-relaxed font-serif">Good afternoon. How may I assist with your academic schedule or research inquiries today?</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1 ml-auto max-w-[85%]">
+<div class="flex items-center gap-2 mb-1 pr-1">
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">You</span>
+<div class="h-6 w-6 rounded-full border border-slate-100 overflow-hidden">
+<img alt="User" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGhLGQ4T5rC5mqi731RVlVFIlg63CWn-zBhX-sXEqzswUsrNoqkgGcUbvZy175ZBO8da6_37-cspd7YqbwikZ1H8ZgLhPE6Eu1xghNDjRoqPV-sHJHbZ4B3s7T0CdPOi9dfoEwahEIStPwggZbKzRZ3sPyQ5l4qdqu0ZzGMniKaCOrc16ZT2KKnPo8GQfoYXnbQHQNUytX33TWJTKRuZH6dXljocXDGl0vBZOzWNcLyqeJ4jrg0gY8FcZwIU-3HCjalK2za1eOLNQ"/>
+</div>
+</div>
+<div class="bg-primary shadow-glass rounded-[4px] rounded-tr-none p-4">
+<p class="text-sm text-white leading-relaxed font-serif">What are the strategic objectives for the MBA candidates in 2024?</p>
+</div>
+</div>
+<div class="flex flex-col gap-1 max-w-[92%] mr-auto">
+<div class="flex items-center gap-2 mb-1 pl-1">
+<div class="h-6 w-6 bg-primary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-primary">auto_awesome</span>
+</div>
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Assistant</span>
+</div>
+<div class="bg-white border border-slate-100 shadow-glass rounded-[4px] rounded-tl-none p-5 space-y-4">
+<div>
+<h3 class="font-serif text-lg text-slate-900 font-bold mb-2">Academic Excellence Framework</h3>
+<p class="text-slate-600 leading-relaxed text-sm font-serif">
+                        The current curriculum for MBA candidates emphasizes the integration of digital transformation with traditional leadership models. Research indicates that students who engage with the cross-disciplinary modules show a 15% higher placement rate in Tier-1 consulting firms<span class="citation-tag">[1]</span>.
+                    </p>
+</div>
+<div class="space-y-3">
+<h4 class="font-serif text-base text-slate-900 font-semibold border-b border-slate-50 pb-2">Key Strategic Pillars</h4>
+<div class="space-y-3">
+<div class="flex gap-3 items-start group">
+<span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0 group-hover:bg-hec-gold transition-colors"></span>
+<div class="text-sm font-serif text-slate-600 leading-relaxed">
+<span class="text-slate-900 font-medium">Global Immersion:</span> 
+                                Required international exchange or double-degree program to foster cultural intelligence<span class="citation-tag">[2]</span>.
+                            </div>
+</div>
+<div class="flex gap-3 items-start group">
+<span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0 group-hover:bg-hec-gold transition-colors"></span>
+<div class="text-sm font-serif text-slate-600 leading-relaxed">
+<span class="text-slate-900 font-medium">Sustainability Focus:</span> 
+                                All strategy projects now incorporate ESG impact assessments as a core KPI<span class="citation-tag">[3]</span>.
+                            </div>
+</div>
+<div class="flex gap-3 items-start group">
+<span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0 group-hover:bg-hec-gold transition-colors"></span>
+<div class="text-sm font-serif text-slate-600 leading-relaxed">
+<span class="text-slate-900 font-medium">Digital Fluency:</span> 
+                                Mastering data-driven decision making is the cornerstone of the modern HEC leadership ethos<span class="citation-tag">[4]</span>.
+                            </div>
+</div>
+</div>
+</div>
+<div class="pt-3 flex items-center justify-between border-t border-slate-50 mt-2">
+<div class="flex gap-2">
+<button class="h-6 px-2 bg-slate-50 border border-slate-100 rounded text-[9px] font-bold text-slate-500 uppercase tracking-tight hover:bg-slate-100 transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">picture_as_pdf</span> PDF Reference
+                        </button>
+</div>
+<div class="flex gap-2">
+<button class="text-slate-300 hover:text-primary transition-colors p-1"><span class="material-symbols-outlined text-[16px]">content_copy</span></button>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between px-2 pt-1 opacity-80 hover:opacity-100 transition-opacity">
+<div class="flex items-center gap-3">
+<span class="text-[10px] text-slate-400 font-medium uppercase tracking-widest">Was this helpful?</span>
+<div class="flex gap-1">
+<button aria-label="Thumbs up" class="p-1 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors group">
+<span class="material-symbols-outlined text-[18px] group-hover:scale-110 transition-transform">thumb_up</span>
+</button>
+<button aria-label="Thumbs down" class="p-1 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors group">
+<span class="material-symbols-outlined text-[18px] group-hover:scale-110 transition-transform">thumb_down</span>
+</button>
+</div>
+</div>
+<a class="text-[10px] text-slate-300 hover:text-slate-500 underline underline-offset-2 transition-colors" href="#">Report issue</a>
+</div>
+</div>
+</main>
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-t border-slate-100 pb-8 px-4 pt-4 shadow-nav">
+<div class="max-w-2xl mx-auto mb-5">
+<div class="bg-white rounded-[4px] border border-slate-200 shadow-xl flex items-center p-2 gap-2 transition-shadow focus-within:shadow-2xl focus-within:border-primary/30">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined">attach_file</span></button>
+<input class="flex-1 border-none focus:ring-0 text-sm text-slate-600 bg-transparent font-serif placeholder:text-slate-400" placeholder="Type your request..." type="text"/>
+<button class="bg-primary h-10 w-10 rounded-[4px] flex items-center justify-center text-white active:scale-95 transition-transform shadow-lg shadow-primary/20 hover:bg-blue-700">
+<span class="material-symbols-outlined text-[20px]">arrow_upward</span>
+</button>
+</div>
+</div>
+<div class="max-w-md mx-auto flex items-center justify-around">
+<button class="flex flex-col items-center justify-center w-12 text-primary group">
+<span class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform">chat_bubble</span>
+<span class="text-[9px] font-bold uppercase tracking-tighter mt-1">Chat</span>
+</button>
+<button class="flex flex-col items-center justify-center w-12 text-slate-400 hover:text-slate-600 transition-colors group">
+<span class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform">calendar_today</span>
+<span class="text-[9px] font-bold uppercase tracking-tighter mt-1">Schedule</span>
+</button>
+<button class="flex flex-col items-center justify-center w-12 text-slate-400 hover:text-slate-600 transition-colors group">
+<span class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform">map</span>
+<span class="text-[9px] font-bold uppercase tracking-tighter mt-1">Campus</span>
+</button>
+<button class="flex flex-col items-center justify-center w-12 text-slate-400 hover:text-slate-600 transition-colors group">
+<span class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform">person</span>
+<span class="text-[9px] font-bold uppercase tracking-tighter mt-1">Profile</span>
+</button>
+</div>
+</div>
+</body></html>
