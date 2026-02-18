@@ -12,7 +12,7 @@ export function FutureExpansion() {
 
                 {/* Logo Marquee */}
                 <div className="relative w-full overflow-hidden mb-12 group" style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}>
-                    <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused] items-center">
+                    <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused] items-center" style={{ animationDuration: "10s" }}>
                         {[...Array(2)].map((_, i) => (
                             <div key={i} className="flex items-center gap-8 mx-4">
                                 <div className="w-[160px] h-[70px] relative flex-shrink-0 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center">
