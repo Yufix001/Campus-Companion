@@ -19,9 +19,9 @@ export function FutureExpansion() {
                                 <div className="w-[160px] h-[80px] relative flex-shrink-0 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center">
                                     <Image src="/assets/hec-paris.svg" alt="HEC Paris" width={160} height={80} className="object-contain max-h-[70px] w-auto" />
                                 </div>
-                                {/* Poly - Vertical Signature, needs height but not too overwhelming */}
+                                {/* Polytechnique - Updated to "Université Paris-Saclay" version (X logo) */}
                                 <div className="w-[160px] h-[80px] relative flex-shrink-0 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center">
-                                    <Image src="/assets/polytechnique-signature.svg" alt="École Polytechnique" width={160} height={80} className="object-contain max-h-[70px] w-auto" />
+                                    <Image src="/assets/polytechnique-saclay.svg" alt="École Polytechnique" width={160} height={80} className="object-contain max-h-[75px] w-auto" />
                                 </div>
                                 {/* ENSTA - Horizontal */}
                                 <div className="w-[160px] h-[80px] relative flex-shrink-0 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center">
