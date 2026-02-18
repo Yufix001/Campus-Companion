@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from "next/image"
 
 export function FutureExpansion() {
     return (
@@ -27,22 +28,48 @@ export function FutureExpansion() {
             <div className="max-w-md mx-auto px-4 flex flex-col items-center text-center">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-[#07305B]/40 mb-6">Future Expansions</span>
 
-                {/* Logo Row - Using stylistic text representation for "Excellence" feel */}
-                <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 opacity-60 grayscale hover:grayscale-0 transition-all duration-500 mb-8">
-                    {/* Polytechnique (l'X) */}
-                    <div className="flex items-center gap-2">
-                        <span className="font-serif font-bold text-2xl text-[#07305B]">X</span>
-                    </div>
+                {/* Logo Marquee */}
+                <div className="relative w-full overflow-hidden mb-8 group">
+                    <div className="absolute top-0 left-0 w-12 h-full bg-gradient-to-r from-white to-transparent z-10"></div>
+                    <div className="absolute top-0 right-0 w-12 h-full bg-gradient-to-l from-white to-transparent z-10"></div>
 
-                    {/* ENSTA */}
-                    <div className="font-sans font-bold text-lg tracking-tight text-[#07305B]">ENSTA</div>
-
-                    {/* ENSAE */}
-                    <div className="font-sans font-black text-lg tracking-widest text-[#07305B]">ENSAE</div>
-
-                    {/* Telecom */}
-                    <div className="font-sans font-semibold text-lg text-[#07305B]">
-                        Téléc<span className="text-accent">om</span>
+                    <div className="flex w-[200%] animate-marquee group-hover:[animation-play-state:paused]">
+                        {/* First Set */}
+                        <div className="flex w-1/2 justify-around items-center px-4 gap-8">
+                            <div className="w-12 h-12 relative flex-shrink-0 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+                                <Image src="/assets/polytechnique.png" alt="Polytechnique" fill className="object-contain" />
+                            </div>
+                            <div className="w-16 h-8 relative flex-shrink-0 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+                                <Image src="/assets/ensta.png" alt="ENSTA" fill className="object-contain" />
+                            </div>
+                            <div className="w-16 h-8 relative flex-shrink-0 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+                                <Image src="/assets/ensae.png" alt="ENSAE" fill className="object-contain" />
+                            </div>
+                            <div className="w-16 h-8 relative flex-shrink-0 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+                                <Image src="/assets/telecom-paris.svg" alt="Télécom Paris" fill className="object-contain" />
+                            </div>
+                            <div className="w-16 h-10 relative flex-shrink-0 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+                                <Image src="/assets/telecom-sudparis.png" alt="Télécom SudParis" fill className="object-contain" />
+                            </div>
+                        </div>
+                        {/* Second Set (Duplicate) */}
+                        <div className="flex w-1/2 justify-around items-center px-4 gap-8">
+                            <div className="w-12 h-12 relative flex-shrink-0 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+                                <Image src="/assets/polytechnique.png" alt="Polytechnique" fill className="object-contain" />
+                            </div>
+                            <div className="w-16 h-8 relative flex-shrink-0 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+                                <Image src="/assets/ensta.png" alt="ENSTA" fill className="object-contain" />
+                            </div>
+                            <div className="w-16 h-8 relative flex-shrink-0 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+                                <Image src="/assets/ensae.png" alt="ENSAE" fill className="object-contain" />
+                            </div>
+                            <div className="w-16 h-8 relative flex-shrink-0 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+                                <Image src="/assets/telecom-paris.svg" alt="Télécom Paris" fill className="object-contain" />
+                            </div>
+                            <div className="w-16 h-10 relative flex-shrink-0 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+                                <Image src="/assets/telecom-sudparis.png" alt="Télécom SudParis" fill className="object-contain" />
+                            </div>
+                        </div>
                     </div>
                 </div>
 

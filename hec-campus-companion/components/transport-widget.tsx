@@ -2,6 +2,7 @@
 
 import { ChevronRight, Train } from "lucide-react"
 import { useEffect, useState } from "react"
+import Image from "next/image"
 
 interface TransportWidgetProps {
     variant?: "sidebar" | "full"
@@ -64,10 +65,16 @@ export function TransportWidget({ variant = "sidebar" }: TransportWidgetProps) {
 
     if (!schedule) return null // Or loading state
 
-    // V Logo Component
+    // V Logo Component using official asset
     const VLogo = () => (
-        <div className="w-10 h-10 bg-[#0048E5]/10 text-[#0048E5] dark:text-emerald-400 rounded-lg flex items-center justify-center border border-[#0048E5]/20 shrink-0">
-            <span className="font-bold font-serif text-lg">V</span>
+        <div className="w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-slate-200">
+            <Image
+                src="/assets/ligne-v.jpg"
+                alt="Ligne V"
+                width={40}
+                height={40}
+                className="w-full h-full object-cover"
+            />
         </div>
     )
 
