@@ -1,6 +1,7 @@
 import { CloudSun, Train, ArrowRight, Rss, Grid, Map, ChevronRight, Search } from "lucide-react"
 import { BottomNav } from "@/components/bottom-nav"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export default function LandingPage() {
     return (
@@ -22,9 +23,11 @@ export default function LandingPage() {
                         <div className="font-serif font-bold text-lg tracking-tighter uppercase text-[#07305B]">HEC Paris</div>
                     </div>
                     <div className="flex items-center gap-4">
-                        <Button className="bg-[#07305B] text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 sharp-corners h-auto rounded-none hover:bg-[#07305B]/90">
-                            Login
-                        </Button>
+                        <Link href="/portal">
+                            <Button className="bg-[#07305B] text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 sharp-corners h-auto rounded-none hover:bg-[#07305B]/90">
+                                Login
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </nav>
@@ -55,19 +58,19 @@ export default function LandingPage() {
                     </div>
 
                     {/* Transport Widget */}
-                    <div className="editorial-border bg-white p-4 flex flex-col justify-between h-full sharp-corners">
+                    <a href="https://www.transilien.com/fr/gare/jouy-en-josas-8739363" target="_blank" rel="noopener noreferrer" className="editorial-border bg-white p-4 flex flex-col justify-between h-full sharp-corners no-underline hover:bg-slate-50 transition-colors">
                         <div className="flex justify-between items-start">
                             <Train size={20} className="text-accent" />
                             <span className="text-[10px] font-bold uppercase tracking-widest text-[#07305B]/50">Transport</span>
                         </div>
                         <div className="mt-4">
                             <div className="flex items-center gap-1.5 mb-1">
-                                <span className="text-[10px] font-bold text-[#07305B]">RER C</span>
+                                <span className="text-[10px] font-bold text-[#07305B]">Ligne V</span>
                                 <div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>
                             </div>
-                            <div className="text-[10px] text-[#07305B]/60">Shuttle: Every 15m</div>
+                            <div className="text-[10px] text-[#07305B]/60">Check Next Departures</div>
                         </div>
-                    </div>
+                    </a>
 
                     {/* News Widget */}
                     <div className="col-span-2 editorial-border bg-white p-4 flex flex-col justify-between h-full sharp-corners">
@@ -106,7 +109,7 @@ export default function LandingPage() {
 
                     {/* Quick Actions */}
                     <div className="grid grid-cols-2 gap-3">
-                        <button className="glass-panel sharp-corners p-5 flex flex-col gap-4 items-start text-left hover:bg-white transition-colors duration-300">
+                        <Link href="/portal" className="glass-panel sharp-corners p-5 flex flex-col gap-4 items-start text-left hover:bg-white transition-colors duration-300 w-full appearance-none">
                             <div className="w-8 h-8 flex items-center justify-center border border-[#07305B]/10 rounded-none">
                                 <Grid size={18} className="text-[#07305B]" />
                             </div>
@@ -114,8 +117,8 @@ export default function LandingPage() {
                                 <span className="text-xs font-bold uppercase tracking-wider text-[#07305B]">Discover Services</span>
                                 <span className="text-[10px] text-[#07305B]/50">Campus Facilities</span>
                             </div>
-                        </button>
-                        <button className="glass-panel sharp-corners p-5 flex flex-col gap-4 items-start text-left hover:bg-white transition-colors duration-300">
+                        </Link>
+                        <Link href="/portal/campus" className="glass-panel sharp-corners p-5 flex flex-col gap-4 items-start text-left hover:bg-white transition-colors duration-300 w-full appearance-none">
                             <div className="w-8 h-8 flex items-center justify-center border border-[#07305B]/10 rounded-none">
                                 <Map size={18} className="text-[#07305B]" />
                             </div>
@@ -123,7 +126,7 @@ export default function LandingPage() {
                                 <span className="text-xs font-bold uppercase tracking-wider text-[#07305B]">Campus Map</span>
                                 <span className="text-[10px] text-[#07305B]/50">Wayfinding</span>
                             </div>
-                        </button>
+                        </Link>
                     </div>
 
                     {/* Campus Life Card */}
@@ -134,7 +137,7 @@ export default function LandingPage() {
                             <p className="text-[#07305B]/70 text-sm leading-relaxed mb-4">
                                 Experience the vibrant ecosystem of our 340-acre wooded campus located just outside of Paris.
                             </p>
-                            <button className="text-[#07305B] text-[10px] font-bold uppercase tracking-[0.2em] border-b border-[#07305B]/20 pb-1 self-start hover:border-[#07305B]">Learn More</button>
+                            <Link href="/portal" className="text-[#07305B] text-[10px] font-bold uppercase tracking-[0.2em] border-b border-[#07305B]/20 pb-1 self-start hover:border-[#07305B]">Learn More</Link>
                         </div>
                         {/* Visual placeholder */}
                         <div className="h-44 w-full bg-slate-200 bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-700"></div>
