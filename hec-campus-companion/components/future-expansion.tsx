@@ -35,9 +35,9 @@ export function FutureExpansion() {
                                 <div className="w-[160px] h-[80px] relative flex-shrink-0 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center">
                                     <Image src="/assets/ponts-paristech.svg" alt="École des Ponts ParisTech" width={140} height={70} className="object-contain max-h-[65px] w-auto" />
                                 </div>
-                                {/* Telecom Paris - Fixed: Revert to valid SVG but scale up significantly to address "too small" complaint */}
-                                <div className="w-[160px] h-[80px] relative flex-shrink-0 transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center scale-125">
-                                    <Image src="/assets/telecom-paris.svg" alt="Télécom Paris" width={160} height={80} className="object-contain max-h-[60px] w-auto" />
+                                {/* Telecom Paris - New Official PNG. Ensure it hits the 160x80 box fully. */}
+                                <div className="w-[160px] h-[80px] relative flex-shrink-0 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center">
+                                    <Image src="/assets/telecom-paris-official.png" alt="Télécom Paris" width={150} height={75} className="object-contain max-h-[65px] w-auto" />
                                 </div>
                                 {/* Telecom SudParis - Dense Block. Keep restrained to avoid overpowering */}
                                 <div className="w-[160px] h-[80px] relative flex-shrink-0 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center">
