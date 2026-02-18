@@ -2,7 +2,7 @@
 
 import { School, ArrowUp, Paperclip, ThumbsUp, ThumbsDown, Copy, Volume2, Sparkles, MessageSquare, AlertCircle } from "lucide-react"
 import { BottomNav } from "@/components/bottom-nav"
-import { useChat } from 'ai/react'
+import { useChat } from '@ai-sdk/react'
 import { createTicket } from '@/app/actions/ticket'
 import { useState, useRef, useEffect } from 'react'
 import { cn } from "@/lib/utils"
