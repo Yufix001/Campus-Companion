@@ -44,7 +44,7 @@ export default function PortalPage() {
 
                 {/* Status Cards */}
                 <div className="bg-white dark:bg-slate-800 p-0 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
-                    <a href="https://www.transilien.com/fr/gare/jouy-en-josas-8739363" target="_blank" rel="noopener noreferrer" className="p-5 block group cursor-pointer hover:bg-slate-50 transition-colors no-underline">
+                    <a href="https://www.bonjour-ratp.fr/horaires-transilien/ligne-v/jouy-en-josas/" target="_blank" rel="noopener noreferrer" className="p-5 block group cursor-pointer hover:bg-slate-50 transition-colors no-underline">
                         <div className="flex items-center justify-between mb-4">
                             <div className="flex items-center gap-4">
                                 <div className="w-10 h-10 bg-[#0048E5]/10 text-[#0048E5] dark:text-emerald-400 rounded-lg flex items-center justify-center border border-[#0048E5]/20">

@@ -58,7 +58,7 @@ export default function LandingPage() {
                     </div>
 
                     {/* Transport Widget */}
-                    <a href="https://www.transilien.com/fr/gare/jouy-en-josas-8739363" target="_blank" rel="noopener noreferrer" className="editorial-border bg-white p-4 flex flex-col justify-between h-full sharp-corners no-underline hover:bg-slate-50 transition-colors">
+                    <a href="https://www.bonjour-ratp.fr/horaires-transilien/ligne-v/jouy-en-josas/" target="_blank" rel="noopener noreferrer" className="editorial-border bg-white p-4 flex flex-col justify-between h-full sharp-corners no-underline hover:bg-slate-50 transition-colors">
                         <div className="flex justify-between items-start mb-2">
                             <Train size={20} className="text-accent" />
                             <span className="text-[10px] font-bold uppercase tracking-widest text-[#07305B]/50">Transport</span>
