@@ -66,13 +66,13 @@ export default function PortalPage() {
 
                 {/* Grid */}
                 <div className="grid grid-cols-2 gap-4">
-                    <Link href="/portal/schedule" className="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between h-32 relative overflow-hidden group shadow-sm hover:border-[#07305B]/30 transition-colors">
+                    <a href="https://booking.hec.fr/myadebooking/#HomePage" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between h-32 relative overflow-hidden group shadow-sm hover:border-[#07305B]/30 transition-colors">
                         <div className="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
                             <Calendar size={96} />
                         </div>
                         <Calendar size={24} className="text-[#07305B] mb-2" />
                         <span className="font-serif font-semibold text-slate-900 dark:text-white">Room<br />Booking</span>
-                    </Link>
+                    </a>
                     <Link href="/portal/profile" className="bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between h-32 relative overflow-hidden group shadow-sm hover:border-[#07305B]/30 transition-colors">
                         <div className="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
                             <GraduationCap size={96} />
