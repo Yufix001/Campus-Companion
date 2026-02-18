@@ -15,43 +15,43 @@ export function FutureExpansion() {
                     <div className="flex w-[200%] animate-marquee group-hover:[animation-play-state:paused] items-center">
                         {/* First Set */}
                         <div className="flex w-1/2 justify-around items-center px-4 gap-16">
-                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                            <div className="w-28 h-14 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.6)] hover:scale-110">
                                 <Image src="/assets/hec-paris.png" alt="HEC Paris" fill className="object-contain" />
                             </div>
-                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.6)] hover:scale-110">
                                 <Image src="/assets/polytechnique.png" alt="Polytechnique" fill className="object-contain" />
                             </div>
-                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.6)] hover:scale-110">
                                 <Image src="/assets/ensta.png" alt="ENSTA" fill className="object-contain" />
                             </div>
-                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.6)] hover:scale-110">
                                 <Image src="/assets/ensae.png" alt="ENSAE" fill className="object-contain" />
                             </div>
-                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.6)] hover:scale-110">
                                 <Image src="/assets/telecom-paris.svg" alt="Télécom Paris" fill className="object-contain" />
                             </div>
-                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.6)] hover:scale-110">
                                 <Image src="/assets/telecom-sudparis.png" alt="Télécom SudParis" fill className="object-contain" />
                             </div>
                         </div>
                         {/* Second Set (Duplicate) */}
                         <div className="flex w-1/2 justify-around items-center px-4 gap-16">
-                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                            <div className="w-28 h-14 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.6)] hover:scale-110">
                                 <Image src="/assets/hec-paris.png" alt="HEC Paris" fill className="object-contain" />
                             </div>
-                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.6)] hover:scale-110">
                                 <Image src="/assets/polytechnique.png" alt="Polytechnique" fill className="object-contain" />
                             </div>
-                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.6)] hover:scale-110">
                                 <Image src="/assets/ensta.png" alt="ENSTA" fill className="object-contain" />
                             </div>
-                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.6)] hover:scale-110">
                                 <Image src="/assets/ensae.png" alt="ENSAE" fill className="object-contain" />
                             </div>
-                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.6)] hover:scale-110">
                                 <Image src="/assets/telecom-paris.svg" alt="Télécom Paris" fill className="object-contain" />
                             </div>
-                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.6)] hover:scale-110">
                                 <Image src="/assets/telecom-sudparis.png" alt="Télécom SudParis" fill className="object-contain" />
                             </div>
                         </div>
