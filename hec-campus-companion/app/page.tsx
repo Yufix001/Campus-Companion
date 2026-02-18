@@ -8,8 +8,9 @@ import { TransportWidget } from "@/components/transport-widget"
 
 export default function LandingPage() {
     return (
-        {/* Top Bar Background - Kept for aesthetics or remove if strictly pre-modern? Keeping for now to avoid breaking layout completely */ }
-        < div className = "fixed top-0 left-0 w-full h-1 bg-[#07305B] z-[60]" ></div >
+        <div className="font-display relative overflow-x-hidden min-h-screen bg-[#F5F5F5] pb-10">
+            {/* Top Bar Background - Kept for aesthetics or remove if strictly pre-modern? Keeping for now to avoid breaking layout completely */}
+            <div className="fixed top-0 left-0 w-full h-1 bg-[#07305B] z-[60]"></div>
             <div className="fixed top-[-5%] right-[-5%] w-[40%] h-[30%] rounded-full bg-[#07305B]/5 blur-[100px] pointer-events-none z-0"></div>
 
             <main className="relative z-10 w-full max-w-md md:max-w-2xl lg:max-w-4xl mx-auto px-4 flex flex-col gap-8 pt-12 md:pt-20">
