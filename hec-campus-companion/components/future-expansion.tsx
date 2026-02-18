@@ -35,13 +35,9 @@ export function FutureExpansion() {
                                 <div className="w-[160px] h-[80px] relative flex-shrink-0 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center">
                                     <Image src="/assets/ponts-paristech.svg" alt="École des Ponts ParisTech" width={140} height={70} className="object-contain max-h-[65px] w-auto" />
                                 </div>
-                                {/* Telecom Paris - Revert to SVG. Use massive scale to force visibility. If this fails, remove it. */}
-                                <div className="w-[160px] h-[80px] relative flex-shrink-0 transition-all duration-300 hover:scale-125 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center">
-                                    <Image src="/assets/telecom-paris.svg" alt="Télécom Paris" width={160} height={80} className="object-contain max-h-[80px] w-auto scale-[1.8]" />
-                                </div>
-                                {/* Telecom SudParis - Dense Block. Keep restrained to avoid overpowering */}
+                                {/* Institut Mines-Télécom (IMT) - Replaces separate Telecom Paris & SudParis schools */}
                                 <div className="w-[160px] h-[80px] relative flex-shrink-0 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center">
-                                    <Image src="/assets/telecom-sudparis.png" alt="Télécom SudParis" width={100} height={50} className="object-contain max-h-[55px] w-auto" />
+                                    <Image src="/assets/imt-logo.svg" alt="Institut Mines-Télécom" width={160} height={80} className="object-contain max-h-[70px] w-auto" />
                                 </div>
                             </div>
                         ))}
