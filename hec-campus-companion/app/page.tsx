@@ -36,11 +36,11 @@ export default function LandingPage() {
                 <header className="mt-8 flex flex-col items-start gap-4">
                     <div className="flex flex-col">
                         <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#07305B]/60 mb-1">Global Portal</span>
-                        <h2 className="font-serif text-xl italic text-[#07305B]/80">Welcome to HEC Paris</h2>
+                        <h2 className="font-serif text-xl italic text-[#07305B]/80">Welcome to HEC Paris Companion</h2>
                     </div>
                     <h1 className="font-serif text-[44px] text-[#07305B] leading-[1.05] font-medium tracking-tight">
-                        Excellence <br />
-                        <span className="italic text-accent">in your pocket.</span>
+                        All the information <br />
+                        <span className="italic text-accent">you need in your pocket.</span>
                     </h1>
                 </header>
 
