@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { WeatherWidget } from "@/components/weather-widget"
 import { FutureExpansion } from "@/components/future-expansion"
+import { TransportWidget } from "@/components/transport-widget"
 
 export default function LandingPage() {
     return (
@@ -56,29 +57,8 @@ export default function LandingPage() {
                     <WeatherWidget />
 
                     {/* Transport Widget */}
-                    <a href="https://www.bonjour-ratp.fr/horaires-transilien/ligne-v/jouy-en-josas/" target="_blank" rel="noopener noreferrer" className="editorial-border bg-white p-4 flex flex-col justify-between h-full sharp-corners no-underline hover:bg-slate-50 transition-colors">
-                        <div className="flex justify-between items-start mb-2">
-                            <Train size={20} className="text-accent" />
-                            <span className="text-[10px] font-bold uppercase tracking-widest text-[#07305B]/50">Transport</span>
-                        </div>
-                        <div className="flex flex-col gap-2">
-                            <div className="flex flex-col">
-                                <span className="text-[9px] text-[#07305B]/60 uppercase tracking-wider mb-0.5">To Versailles</span>
-                                <div className="flex items-baseline justify-between">
-                                    <span className="text-sm font-serif font-medium text-[#07305B]">14:42</span>
-                                    <span className="text-[10px] font-bold text-accent">5 min</span>
-                                </div>
-                            </div>
-                            <div className="w-full h-[1px] bg-[#07305B]/5"></div>
-                            <div className="flex flex-col">
-                                <span className="text-[9px] text-[#07305B]/60 uppercase tracking-wider mb-0.5">To Massy-Pal.</span>
-                                <div className="flex items-baseline justify-between">
-                                    <span className="text-sm font-serif font-medium text-[#07305B]">14:56</span>
-                                    <span className="text-[10px] font-bold text-accent">19 min</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                    {/* Transport Widget */}
+                    <TransportWidget variant="sidebar" />
 
                     {/* News Widget */}
                     <div className="col-span-2 editorial-border bg-white p-4 flex flex-col justify-between h-full sharp-corners">

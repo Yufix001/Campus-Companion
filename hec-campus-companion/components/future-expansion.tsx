@@ -11,15 +11,15 @@ export function FutureExpansion() {
                 <div className="absolute top-0 left-0 w-8 h-full bg-gradient-to-r from-white to-transparent z-10"></div>
                 <div className="absolute top-0 right-0 w-8 h-full bg-gradient-to-l from-white to-transparent z-10"></div>
                 <div className="w-[200%] flex animate-marquee">
-                    <div className="flex w-1/2 justify-around whitespace-nowrap">
-                        <span className="text-4xl font-serif italic text-slate-100 mx-4">Coming soon to IP Paris Universities & more...</span>
-                        <span className="text-4xl font-serif italic text-slate-100 mx-4">Coming soon to IP Paris Universities & more...</span>
-                        <span className="text-4xl font-serif italic text-slate-100 mx-4">Coming soon to IP Paris Universities & more...</span>
+                    <div className="flex w-1/2 items-center justify-around whitespace-nowrap px-4">
+                        <span className="text-4xl font-serif italic text-slate-100">Coming soon to IP Paris Universities & more...</span>
+                        <span className="text-4xl font-serif italic text-slate-100">Coming soon to IP Paris Universities & more...</span>
+                        <span className="text-4xl font-serif italic text-slate-100">Coming soon to IP Paris Universities & more...</span>
                     </div>
-                    <div className="flex w-1/2 justify-around whitespace-nowrap">
-                        <span className="text-4xl font-serif italic text-slate-100 mx-4">Coming soon to IP Paris Universities & more...</span>
-                        <span className="text-4xl font-serif italic text-slate-100 mx-4">Coming soon to IP Paris Universities & more...</span>
-                        <span className="text-4xl font-serif italic text-slate-100 mx-4">Coming soon to IP Paris Universities & more...</span>
+                    <div className="flex w-1/2 items-center justify-around whitespace-nowrap px-4">
+                        <span className="text-4xl font-serif italic text-slate-100">Coming soon to IP Paris Universities & more...</span>
+                        <span className="text-4xl font-serif italic text-slate-100">Coming soon to IP Paris Universities & more...</span>
+                        <span className="text-4xl font-serif italic text-slate-100">Coming soon to IP Paris Universities & more...</span>
                     </div>
                 </div>
             </div>

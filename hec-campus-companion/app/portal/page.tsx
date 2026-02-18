@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ShuttleBanner } from "@/components/shuttle-banner"
 import { WeatherWidget } from "@/components/weather-widget"
+import { TransportWidget } from "@/components/transport-widget"
 
 export default function PortalPage() {
     return (
@@ -47,40 +48,7 @@ export default function PortalPage() {
 
                 {/* Status Cards */}
                 <div className="bg-white dark:bg-slate-800 p-0 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
-                    <a href="https://www.bonjour-ratp.fr/horaires-transilien/ligne-v/jouy-en-josas/" target="_blank" rel="noopener noreferrer" className="p-5 block group cursor-pointer hover:bg-slate-50 transition-colors no-underline">
-                        <div className="flex items-center justify-between mb-4">
-                            <div className="flex items-center gap-4">
-                                <div className="w-10 h-10 bg-[#0048E5]/10 text-[#0048E5] dark:text-emerald-400 rounded-lg flex items-center justify-center border border-[#0048E5]/20">
-                                    <span className="font-bold font-serif text-lg">V</span>
-                                </div>
-                                <div>
-                                    <h3 className="font-semibold text-slate-900 dark:text-white text-sm">Ligne V</h3>
-                                    <p className="text-xs text-slate-500 dark:text-slate-400">Jouy-en-Josas Station</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <div className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
-                                <ChevronRight className="text-slate-300" size={20} />
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-2 gap-4">
-                            <div className="bg-slate-50 rounded-lg p-3 border border-slate-100">
-                                <span className="block text-[10px] text-slate-500 uppercase tracking-wider mb-1">To Versailles</span>
-                                <div className="flex items-end gap-2">
-                                    <span className="text-lg font-bold text-[#07305B]">5 min</span>
-                                    <span className="text-xs text-slate-400 mb-1">14:42</span>
-                                </div>
-                            </div>
-                            <div className="bg-slate-50 rounded-lg p-3 border border-slate-100">
-                                <span className="block text-[10px] text-slate-500 uppercase tracking-wider mb-1">To Massy-Pal.</span>
-                                <div className="flex items-end gap-2">
-                                    <span className="text-lg font-bold text-[#07305B]">19 min</span>
-                                    <span className="text-xs text-slate-400 mb-1">14:56</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                    <TransportWidget variant="full" />
                     <div className="h-[1px] bg-slate-100 dark:bg-slate-800 w-full mx-auto"></div>
                     <Link href="/portal/campus" className="p-5 flex items-center justify-between group cursor-pointer hover:bg-slate-50 transition-colors">
                         <div className="flex items-center gap-4">
