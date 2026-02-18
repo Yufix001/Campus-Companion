@@ -26,7 +26,7 @@ export default function LandingPage() {
                         <div className="font-serif font-bold text-lg tracking-tighter uppercase text-[#07305B]">Campus Companion</div>
                     </div>
                     <div className="flex items-center gap-4">
-                        <Link href="/portal">
+                        <Link href="/login">
                             <Button className="bg-[#07305B] text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 sharp-corners h-auto rounded-none hover:bg-[#07305B]/90">
                                 Login
                             </Button>
@@ -59,19 +59,7 @@ export default function LandingPage() {
                     {/* Transport Widget */}
                     <TransportWidget variant="sidebar" />
 
-                    {/* News Widget */}
-                    <div className="col-span-2 editorial-border bg-white p-4 flex flex-col justify-between h-full sharp-corners min-h-[120px]">
-                        <div className="flex justify-between items-start mb-4">
-                            <span className="text-[10px] font-bold text-accent uppercase tracking-widest">Campus News</span>
-                            <ChevronRight size={16} className="text-[#07305B]" />
-                        </div>
-                        <div>
-                            <h3 className="font-serif text-xl font-medium leading-tight mb-2 text-[#07305B]">2024 Global Ranking Achievement</h3>
-                            <p className="text-xs text-[#07305B]/60 leading-relaxed max-w-[90%]">
-                                Discover how HEC Paris continues to lead international excellence rankings...
-                            </p>
-                        </div>
-                    </div>
+
                 </section>
 
                 <FutureExpansion />
