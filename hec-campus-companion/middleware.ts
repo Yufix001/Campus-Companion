@@ -71,9 +71,14 @@ export async function middleware(request: NextRequest) {
         }
     }
 
-    // Redirect /login to /portal if already logged in (Student Flow)
+    // Smart Redirection for Logged In Users accessing /login
     if (request.nextUrl.pathname.startsWith('/login')) {
         if (session) {
+            // Check for Admin Email in Session
+            if (session.user.email?.toLowerCase() === 'admin@hec.edu') {
+                return NextResponse.redirect(new URL('/admin', request.url))
+            }
+            // Default Student Redirection
             return NextResponse.redirect(new URL('/portal', request.url))
         }
     }
