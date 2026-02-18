@@ -1,5 +1,5 @@
 import { CloudSun, Train, ArrowRight, Rss, Grid, Map, ChevronRight, Search } from "lucide-react"
-import { BottomNav } from "@/components/bottom-nav"
+
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { WeatherWidget } from "@/components/weather-widget"
