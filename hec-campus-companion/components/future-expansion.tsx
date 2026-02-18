@@ -12,29 +12,36 @@ export function FutureExpansion() {
 
                 {/* Logo Marquee */}
                 <div className="relative w-full overflow-hidden mb-12 group" style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}>
-                    <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused] items-center" style={{ animationDuration: "25s" }}>
+                    <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused] items-center" style={{ animationDuration: "50s" }}>
                         {[...Array(2)].map((_, i) => (
-                            <div key={i} className="flex items-center gap-12 mx-6">
+                            <div key={i} className="flex items-center gap-16 mx-8">
+                                {/* HEC - Horizontal, keep large */}
                                 <div className="w-[160px] h-[80px] relative flex-shrink-0 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center">
-                                    <Image src="/assets/hec-paris.svg" alt="HEC Paris" width={140} height={70} className="object-contain max-h-full max-w-full w-auto h-auto" />
+                                    <Image src="/assets/hec-paris.svg" alt="HEC Paris" width={160} height={80} className="object-contain max-h-[70px] w-auto" />
                                 </div>
+                                {/* Poly - Vertical Signature, needs height but not too overwhelming */}
                                 <div className="w-[160px] h-[80px] relative flex-shrink-0 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center">
-                                    <Image src="/assets/polytechnique-signature.svg" alt="École Polytechnique" width={140} height={70} className="object-contain max-h-full max-w-full w-auto h-auto" />
+                                    <Image src="/assets/polytechnique-signature.svg" alt="École Polytechnique" width={160} height={80} className="object-contain max-h-[70px] w-auto" />
                                 </div>
+                                {/* ENSTA - Horizontal */}
                                 <div className="w-[160px] h-[80px] relative flex-shrink-0 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center">
-                                    <Image src="/assets/ensta.png" alt="ENSTA" width={140} height={70} className="object-contain max-h-full max-w-full w-auto h-auto" />
+                                    <Image src="/assets/ensta.png" alt="ENSTA" width={140} height={70} className="object-contain max-h-[60px] w-auto" />
                                 </div>
+                                {/* ENSAE - Horizontal */}
                                 <div className="w-[160px] h-[80px] relative flex-shrink-0 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center">
-                                    <Image src="/assets/ensae.png" alt="ENSAE" width={140} height={70} className="object-contain max-h-full max-w-full w-auto h-auto" />
+                                    <Image src="/assets/ensae.png" alt="ENSAE" width={140} height={70} className="object-contain max-h-[60px] w-auto" />
                                 </div>
+                                {/* Ponts - Approx Square/Triangle? Keep moderate */}
                                 <div className="w-[160px] h-[80px] relative flex-shrink-0 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center">
-                                    <Image src="/assets/ponts-paristech.svg" alt="École des Ponts ParisTech" width={140} height={70} className="object-contain max-h-full max-w-full w-auto h-auto" />
+                                    <Image src="/assets/ponts-paristech.svg" alt="École des Ponts ParisTech" width={140} height={70} className="object-contain max-h-[65px] w-auto" />
                                 </div>
+                                {/* Telecom Paris - Very horizontal/light text. Maximize width/height */}
                                 <div className="w-[160px] h-[80px] relative flex-shrink-0 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center">
-                                    <Image src="/assets/telecom-paris.svg" alt="Télécom Paris" width={140} height={70} className="object-contain max-h-full max-w-full w-auto h-auto" />
+                                    <Image src="/assets/telecom-paris.svg" alt="Télécom Paris" width={160} height={80} className="object-contain max-h-[50px] w-auto" />
                                 </div>
+                                {/* Telecom SudParis - Dense Block. MUST SHRINK. Add padding/max-height constraint */}
                                 <div className="w-[160px] h-[80px] relative flex-shrink-0 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.8)] flex items-center justify-center">
-                                    <Image src="/assets/telecom-sudparis.png" alt="Télécom SudParis" width={140} height={70} className="object-contain max-h-full max-w-full w-auto h-auto" />
+                                    <Image src="/assets/telecom-sudparis.png" alt="Télécom SudParis" width={100} height={50} className="object-contain max-h-[55px] w-auto" />
                                 </div>
                             </div>
                         ))}
