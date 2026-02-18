@@ -6,7 +6,7 @@ import Image from "next/image"
 
 export function FutureExpansion() {
     return (
-        <section className="bg-white border-y border-slate-100 py-12 overflow-hidden">
+        <section className="py-12 overflow-hidden">
             <div className="max-w-md mx-auto px-4 flex flex-col items-center text-center">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-[#07305B]/40 mb-8">Future Expansions</span>
 
@@ -15,9 +15,8 @@ export function FutureExpansion() {
                     <div className="flex w-[200%] animate-marquee group-hover:[animation-play-state:paused] items-center">
                         {/* First Set */}
                         <div className="flex w-1/2 justify-around items-center px-4 gap-16">
-                            {/* HEC Logo Placeholder - Text Based since asset is missing */}
-                            <div className="w-24 h-12 relative flex-shrink-0 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                                <span className="font-serif font-bold text-xl text-[#07305B]">HEC</span>
+                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                                <Image src="/assets/hec-paris.png" alt="HEC Paris" fill className="object-contain" />
                             </div>
                             <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                                 <Image src="/assets/polytechnique.png" alt="Polytechnique" fill className="object-contain" />
@@ -37,9 +36,8 @@ export function FutureExpansion() {
                         </div>
                         {/* Second Set (Duplicate) */}
                         <div className="flex w-1/2 justify-around items-center px-4 gap-16">
-                            {/* HEC Logo Placeholder */}
-                            <div className="w-24 h-12 relative flex-shrink-0 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                                <span className="font-serif font-bold text-xl text-[#07305B]">HEC</span>
+                            <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                                <Image src="/assets/hec-paris.png" alt="HEC Paris" fill className="object-contain" />
                             </div>
                             <div className="w-24 h-12 relative flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                                 <Image src="/assets/polytechnique.png" alt="Polytechnique" fill className="object-contain" />
