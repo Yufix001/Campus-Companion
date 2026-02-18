@@ -3,6 +3,7 @@ import { BottomNav } from "@/components/bottom-nav"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { WeatherWidget } from "@/components/weather-widget"
+import { FutureExpansion } from "@/components/future-expansion"
 
 export default function LandingPage() {
     return (
