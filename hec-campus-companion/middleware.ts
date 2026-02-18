@@ -58,15 +58,23 @@ export async function middleware(request: NextRequest) {
 
     // Protect /admin routes
     if (request.nextUrl.pathname.startsWith('/admin')) {
+        // Exempt /admin/login from protection loop to avoid infinite redirect
+        if (request.nextUrl.pathname === '/admin/login') {
+            if (session) {
+                return NextResponse.redirect(new URL('/admin', request.url))
+            }
+            return response
+        }
+
         if (!session) {
-            return NextResponse.redirect(new URL('/login', request.url))
+            return NextResponse.redirect(new URL('/admin/login', request.url))
         }
     }
 
-    // Redirect /login to /admin if already logged in
+    // Redirect /login to /portal if already logged in (Student Flow)
     if (request.nextUrl.pathname.startsWith('/login')) {
         if (session) {
-            return NextResponse.redirect(new URL('/admin', request.url))
+            return NextResponse.redirect(new URL('/portal', request.url))
         }
     }
 

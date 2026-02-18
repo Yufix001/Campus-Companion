@@ -9,10 +9,12 @@ import { Label } from "@/components/ui/label"
 import { Loader2 } from "lucide-react"
 
 export default function LoginPage() {
+    const [isLogin, setIsLogin] = useState(true)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
+    const [success, setSuccess] = useState<string | null>(null)
     const router = useRouter()
 
     const supabase = createBrowserClient(
@@ -20,40 +22,45 @@ export default function LoginPage() {
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
     )
 
-    const handleLogin = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         setLoading(true)
         setError(null)
+        setSuccess(null)
 
-        const { error } = await supabase.auth.signInWithPassword({
-            email,
-            password,
-        })
+        if (isLogin) {
+            // LOGIN FLOW
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email,
+                password,
+            })
 
-        if (error) {
-            setError(error.message)
-            setLoading(false)
+            if (error) {
+                setError(error.message)
+                setLoading(false)
+            } else if (data.session) {
+                // Force Student Portal for all users here.
+                // Admin users should use /admin/login, but if they login here, they go to portal too.
+                router.push("/portal")
+                router.refresh()
+            }
         } else {
-            router.push("/admin")
-            router.refresh()
-        }
-    }
+            // REGISTER FLOW
+            const { data, error } = await supabase.auth.signUp({
+                email,
+                password,
+            })
 
-    const handleSignUp = async () => {
-        setLoading(true)
-        setError(null)
-
-        const { error } = await supabase.auth.signUp({
-            email,
-            password,
-        })
-
-        if (error) {
-            setError(error.message)
-            setLoading(false)
-        } else {
-            setError("Check your email for confirmation link (or check Supabase logs if disabled)")
-            setLoading(false)
+            if (error) {
+                setError(error.message)
+                setLoading(false)
+            } else if (data.session) {
+                router.push("/portal")
+                router.refresh()
+            } else if (data.user && !data.session) {
+                setSuccess("Account created! Please check your email to confirm.")
+                setLoading(false)
+            }
         }
     }
 
@@ -63,16 +70,31 @@ export default function LoginPage() {
                 <div className="flex flex-col items-center mb-8">
                     <div className="h-1 w-12 bg-[#07305B] mb-4"></div>
                     <h1 className="font-serif text-2xl text-[#07305B] font-bold">Campus Companion</h1>
-                    <p className="text-xs text-[#07305B]/60 uppercase tracking-widest mt-2">Admin Access</p>
+                    <p className="text-xs text-[#07305B]/60 uppercase tracking-widest mt-2">Student Portal</p>
                 </div>
 
-                <form onSubmit={handleLogin} className="flex flex-col gap-4">
+                <div className="flex w-full mb-6 border-b border-[#07305B]/10">
+                    <button
+                        onClick={() => { setIsLogin(true); setError(null); setSuccess(null); }}
+                        className={`flex-1 pb-2 text-sm font-bold uppercase tracking-wider transition-colors ${isLogin ? 'text-[#07305B] border-b-2 border-[#07305B]' : 'text-[#07305B]/40 hover:text-[#07305B]/60'}`}
+                    >
+                        Sign In
+                    </button>
+                    <button
+                        onClick={() => { setIsLogin(false); setError(null); setSuccess(null); }}
+                        className={`flex-1 pb-2 text-sm font-bold uppercase tracking-wider transition-colors ${!isLogin ? 'text-[#07305B] border-b-2 border-[#07305B]' : 'text-[#07305B]/40 hover:text-[#07305B]/60'}`}
+                    >
+                        Register
+                    </button>
+                </div>
+
+                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                     <div className="space-y-2">
-                        <Label htmlFor="email">Email</Label>
+                        <Label htmlFor="email">HEC Email</Label>
                         <Input
                             id="email"
                             type="email"
-                            placeholder="admin@hec.edu"
+                            placeholder="student@hec.edu"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
@@ -92,31 +114,26 @@ export default function LoginPage() {
                     </div>
 
                     {error && (
-                        <div className="text-red-500 text-xs p-2 bg-red-50 border border-red-100">
+                        <div className="text-red-500 text-xs p-3 bg-red-50 border border-red-100 rounded-sm">
+                            <span className="font-bold block mb-1">Error</span>
                             {error}
+                        </div>
+                    )}
+
+                    {success && (
+                        <div className="text-green-600 text-xs p-3 bg-green-50 border border-green-100 rounded-sm">
+                            <span className="font-bold block mb-1">Success</span>
+                            {success}
                         </div>
                     )}
 
                     <Button
                         type="submit"
                         disabled={loading}
-                        className="bg-[#07305B] text-white mt-4 sharp-corners hover:bg-[#07305B]/90"
+                        className="bg-[#07305B] text-white mt-4 sharp-corners hover:bg-[#07305B]/90 h-12 text-sm font-bold uppercase tracking-widest"
                     >
-                        {loading ? <Loader2 className="animate-spin w-4 h-4" /> : "Sign In"}
+                        {loading ? <Loader2 className="animate-spin w-4 h-4" /> : (isLogin ? "Access Portal" : "Create Account")}
                     </Button>
-
-                    {/* Optional: Sign Up button for initial setup */}
-                    <div className="text-center mt-2">
-                        <button
-                            type="button"
-                            onClick={handleSignUp}
-                            disabled={loading}
-                            className="text-xs text-[#07305B]/40 hover:text-[#07305B] underline decoration-[#07305B]/20"
-                        >
-                            Create Account (Dev Only)
-                        </button>
-                    </div>
-
                 </form>
             </div>
         </div>
