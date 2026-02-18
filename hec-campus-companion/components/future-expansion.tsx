@@ -8,7 +8,7 @@ export function FutureExpansion() {
     return (
         <section className="py-12 overflow-hidden">
             <div className="max-w-md mx-auto px-4 flex flex-col items-center text-center">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-[#07305B]/40 mb-8">Future Expansions</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[#07305B]/40 mb-8">Joining the Ecosystem soon</span>
 
                 {/* Logo Marquee */}
                 <div className="relative w-full overflow-hidden mb-12 group" style={{ maskImage: "linear-gradient(to right, transparent, black 20%, black 80%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 20%, black 80%, transparent)" }}>
