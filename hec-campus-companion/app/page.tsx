@@ -8,7 +8,7 @@ import { TransportWidget } from "@/components/transport-widget"
 
 export default function LandingPage() {
     return (
-        <div className="font-display relative overflow-x-hidden min-h-screen bg-[#F5F5F5] pb-24 md:pb-10">
+        <div className="font-display relative overflow-x-hidden min-h-screen bg-[#F5F5F5] pb-10">
             {/* Top Bar Background */}
             <div className="fixed top-0 left-0 w-full h-1 bg-[#07305B] z-[60]"></div>
             <div className="fixed top-[-5%] right-[-5%] w-[40%] h-[30%] rounded-full bg-[#07305B]/5 blur-[100px] pointer-events-none z-0"></div>
@@ -47,9 +47,9 @@ export default function LandingPage() {
                         <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#07305B]/60">Virtual Assistant active</span>
                     </div>
 
-                    <h1 className="font-serif text-[44px] text-[#07305B] leading-[1.05] font-medium tracking-tight mb-2">
-                        Answers for everyday campus life — <br />
-                        <span className="italic text-accent">in your pocket.</span>
+                    <h1 className="font-serif text-5xl md:text-7xl text-[#07305B] leading-[1.05] font-medium tracking-tight">
+                        Excellence in<br />
+                        <span className="italic text-accent">your pocket.</span>
                     </h1>
 
                     <p className="text-[#07305B]/60 text-sm md:text-base max-w-md leading-relaxed">
@@ -161,7 +161,7 @@ export default function LandingPage() {
                 </footer>
             </main>
 
-            <BottomNav />
+
         </div >
     )
 }
