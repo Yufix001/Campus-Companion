@@ -57,9 +57,21 @@ export default function LandingPage() {
                     <WeatherWidget />
 
                     {/* Transport Widget */}
-                    {/* Transport Widget */}
                     <TransportWidget variant="sidebar" />
 
+                    {/* News Widget */}
+                    <div className="col-span-2 editorial-border bg-white p-4 flex flex-col justify-between h-full sharp-corners min-h-[120px]">
+                        <div className="flex justify-between items-start mb-4">
+                            <span className="text-[10px] font-bold text-accent uppercase tracking-widest">Campus News</span>
+                            <ChevronRight size={16} className="text-[#07305B]" />
+                        </div>
+                        <div>
+                            <h3 className="font-serif text-xl font-medium leading-tight mb-2 text-[#07305B]">2024 Global Ranking Achievement</h3>
+                            <p className="text-xs text-[#07305B]/60 leading-relaxed max-w-[90%]">
+                                Discover how HEC Paris continues to lead international excellence rankings...
+                            </p>
+                        </div>
+                    </div>
                 </section>
 
                 <FutureExpansion />
@@ -137,6 +149,6 @@ export default function LandingPage() {
             </main>
 
             <BottomNav />
-        </div>
+        </div >
     )
 }
