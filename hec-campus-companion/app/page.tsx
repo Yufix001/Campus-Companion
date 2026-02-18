@@ -59,16 +59,26 @@ export default function LandingPage() {
 
                     {/* Transport Widget */}
                     <a href="https://www.transilien.com/fr/gare/jouy-en-josas-8739363" target="_blank" rel="noopener noreferrer" className="editorial-border bg-white p-4 flex flex-col justify-between h-full sharp-corners no-underline hover:bg-slate-50 transition-colors">
-                        <div className="flex justify-between items-start">
+                        <div className="flex justify-between items-start mb-2">
                             <Train size={20} className="text-accent" />
                             <span className="text-[10px] font-bold uppercase tracking-widest text-[#07305B]/50">Transport</span>
                         </div>
-                        <div className="mt-4">
-                            <div className="flex items-center gap-1.5 mb-1">
-                                <span className="text-[10px] font-bold text-[#07305B]">Ligne V</span>
-                                <div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>
+                        <div className="flex flex-col gap-2">
+                            <div className="flex flex-col">
+                                <span className="text-[9px] text-[#07305B]/60 uppercase tracking-wider mb-0.5">To Versailles</span>
+                                <div className="flex items-baseline justify-between">
+                                    <span className="text-sm font-serif font-medium text-[#07305B]">14:42</span>
+                                    <span className="text-[10px] font-bold text-accent">5 min</span>
+                                </div>
                             </div>
-                            <div className="text-[10px] text-[#07305B]/60">Check Next Departures</div>
+                            <div className="w-full h-[1px] bg-[#07305B]/5"></div>
+                            <div className="flex flex-col">
+                                <span className="text-[9px] text-[#07305B]/60 uppercase tracking-wider mb-0.5">To Massy-Pal.</span>
+                                <div className="flex items-baseline justify-between">
+                                    <span className="text-sm font-serif font-medium text-[#07305B]">14:56</span>
+                                    <span className="text-[10px] font-bold text-accent">19 min</span>
+                                </div>
+                            </div>
                         </div>
                     </a>
 
