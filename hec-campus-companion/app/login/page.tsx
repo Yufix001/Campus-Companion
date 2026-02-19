@@ -33,13 +33,17 @@ export default function LoginPage() {
             return
         }
 
-        // Admin Access Logic
-        if (email.toLowerCase() === "admin@hec.edu") {
-            setStep("password")
-            return
-        }
+        // 1. Check if user exists and get their role
+        // For security, we might want to do this via an edge function, but for now we'll check public profile
+        // Note: Row Level Security will prevent unrelated users from seeing this if not configured correctly.
+        // A better approach for "Admin Detection" on login is simply to try standard auth.
+        // If they are admin, they likely have a password set. If student, they use OTP.
 
-        // Student Access Logic (Magic Link)
+        // Simplified Flow for "Clean Access":
+        // Everyone enters email.
+        // We check if we can sign them in with OTP (default).
+        // If they explicitly want to sign in with password (admin), they can switch modes.
+
         setLoading(true)
         const { error: otpError } = await supabase.auth.signInWithOtp({
             email,
@@ -70,6 +74,9 @@ export default function LoginPage() {
             setError(error.message)
             setLoading(false)
         } else if (data.session) {
+            // Redirect based on role logic handled by middleware or useEffect, 
+            // but for instant feedback let's push to admin. 
+            // Middleware will kick back if not admin.
             router.push("/admin")
             router.refresh()
         }
@@ -129,7 +136,10 @@ export default function LoginPage() {
                             {loading ? <Loader2 className="animate-spin w-4 h-4" /> : "Continue"}
                         </Button>
 
-                        <div className="mt-4 text-center">
+                        <div className="mt-4 text-center flex flex-col gap-2">
+                            <p className="text-xs text-[#07305B]/60">
+                                Admin access? <button type="button" className="underline font-semibold hover:text-[#07305B]" onClick={() => setStep("password")}>Sign in with password</button>
+                            </p>
                             <p className="text-xs text-[#07305B]/60">
                                 New here? <button type="button" className="underline font-semibold hover:text-[#07305B]" onClick={() => setError("Please use the Register flow or contact support (Demo only)")}>Create an account.</button>
                             </p>
@@ -143,8 +153,8 @@ export default function LoginPage() {
                                 id="email"
                                 type="email"
                                 value={email}
-                                disabled
-                                className="bg-gray-50 border-[#07305B]/10 text-[#07305B]/60"
+                                onChange={(e) => setEmail(e.target.value)}
+                                className="bg-white border-[#07305B]/20 focus:border-[#07305B]"
                             />
                         </div>
                         <div className="space-y-2">

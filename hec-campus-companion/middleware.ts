@@ -56,6 +56,24 @@ export async function middleware(request: NextRequest) {
 
     const { data: { session } } = await supabase.auth.getSession()
 
+    // Smart Redirection for Logged In Users accessing /login
+    if (request.nextUrl.pathname.startsWith('/login')) {
+        if (session) {
+            // Check Profile Role
+            const { data: profile } = await supabase
+                .from('profiles')
+                .select('role')
+                .eq('id', session.user.id)
+                .single()
+
+            if (profile?.role === 'admin') {
+                return NextResponse.redirect(new URL('/admin', request.url))
+            }
+            // Default Student Redirection
+            return NextResponse.redirect(new URL('/portal', request.url))
+        }
+    }
+
     // Protect /admin routes
     if (request.nextUrl.pathname.startsWith('/admin')) {
         // Exempt /admin/login from protection loop to avoid infinite redirect
@@ -67,18 +85,18 @@ export async function middleware(request: NextRequest) {
         }
 
         if (!session) {
-            return NextResponse.redirect(new URL('/admin/login', request.url))
+            return NextResponse.redirect(new URL('/login', request.url)) // Unified login
         }
-    }
 
-    // Smart Redirection for Logged In Users accessing /login
-    if (request.nextUrl.pathname.startsWith('/login')) {
-        if (session) {
-            // Check for Admin Email in Session
-            if (session.user.email?.toLowerCase() === 'admin@hec.edu') {
-                return NextResponse.redirect(new URL('/admin', request.url))
-            }
-            // Default Student Redirection
+        // Strict Role Check for Admin Routes
+        const { data: profile } = await supabase
+            .from('profiles')
+            .select('role')
+            .eq('id', session.user.id)
+            .single()
+
+        if (profile?.role !== 'admin') {
+            // Redirect unauthorized users to portal
             return NextResponse.redirect(new URL('/portal', request.url))
         }
     }
