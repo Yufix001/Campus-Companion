@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Loader2, ArrowRight } from "lucide-react"
+import Link from "next/link"
 
 export default function LoginPage() {
     const [email, setEmail] = useState("")
@@ -137,8 +138,13 @@ export default function LoginPage() {
                         </Button>
 
                         <div className="mt-4 text-center flex flex-col gap-2">
+                            <Link href="/admin" className="w-full block mb-2">
+                                <Button type="button" className="w-full bg-amber-500 text-white hover:bg-amber-600 border border-amber-600 sharp-corners text-xs font-bold uppercase tracking-widest h-10 shadow-md">
+                                    🚀 Enter Admin Demo
+                                </Button>
+                            </Link>
                             <p className="text-xs text-amber-600 font-bold">
-                                🔓 [DEV] Admin access open for everyone
+                                🔓 [DEV] Authentication Disabled
                             </p>
                             <p className="text-xs text-[#07305B]/60">
                                 Admin access? <button type="button" className="underline font-semibold hover:text-[#07305B]" onClick={() => setStep("password")}>Sign in with password</button>
