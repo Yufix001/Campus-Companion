@@ -1,7 +1,7 @@
 {
   "name": "campus-companion",
   "version": "1.0.0",
-  "type": "module",
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,32 +9,31 @@
     "lint": "echo 'Linting skipped'"
   },
   "dependencies": {
-    "@ai-sdk/react": "latest",
-    "@radix-ui/react-dialog": "latest",
-    "@radix-ui/react-label": "latest",
-    "@radix-ui/react-slot": "latest",
-    "@supabase/ssr": "latest",
-    "@supabase/supabase-js": "latest",
-    "ai": "latest",
-    "class-variance-authority": "latest",
-    "clsx": "latest",
-    "lucide-react": "latest",
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "tailwind-merge": "latest",
-    "tailwindcss-animate": "latest"
+    "@ai-sdk/react": "^1.0.0",
+    "@radix-ui/react-dialog": "^1.1.2",
+    "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@supabase/ssr": "^0.5.1",
+    "@supabase/supabase-js": "^2.45.4",
+    "ai": "^4.0.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.454.0",
+    "next": "14.2.16",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@types/node": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
-    "autoprefixer": "latest",
-    "eslint": "latest",
-    "eslint-config-next": "latest",
-    "postcss": "latest",
-    "tailwindcss": "latest",
-    "typescript": "latest",
-    "vercel": "latest"
+    "@types/node": "^20.17.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "14.2.16",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3"
   }
 }
