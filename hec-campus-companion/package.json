@@ -4,12 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "echo '--- DEBUG START ---' && pwd && ls -F && npm list next && echo '--- DEBUG END ---' && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "echo 'Linting skipped'"
-  },
-  "engines": {
-    "node": ">=18.17.0"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.2",
