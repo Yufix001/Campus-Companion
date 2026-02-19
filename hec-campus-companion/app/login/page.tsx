@@ -143,6 +143,11 @@ export default function LoginPage() {
                                     🚀 Enter Admin Demo
                                 </Button>
                             </Link>
+                            <Link href="/portal" className="w-full block mb-2">
+                                <Button type="button" className="w-full bg-[#07305B] text-white hover:bg-[#07305B]/90 border border-[#07305B] sharp-corners text-xs font-bold uppercase tracking-widest h-10 shadow-md">
+                                    🎓 Enter Student App
+                                </Button>
+                            </Link>
                             <p className="text-xs text-amber-600 font-bold">
                                 🔓 [DEV] Authentication Disabled
                             </p>
