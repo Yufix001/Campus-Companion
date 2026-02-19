@@ -60,6 +60,10 @@ export async function middleware(request: NextRequest) {
     if (request.nextUrl.pathname.startsWith('/login')) {
         if (session) {
             // Check Profile Role
+            // [DEV] Default to admin for everyone
+            return NextResponse.redirect(new URL('/admin', request.url))
+
+            /*
             const { data: profile } = await supabase
                 .from('profiles')
                 .select('role')
@@ -71,6 +75,7 @@ export async function middleware(request: NextRequest) {
             }
             // Default Student Redirection
             return NextResponse.redirect(new URL('/portal', request.url))
+            */
         }
     }
 
@@ -89,6 +94,8 @@ export async function middleware(request: NextRequest) {
         }
 
         // Strict Role Check for Admin Routes
+        // [DEV] Fake Admin Access: Allow everyone in.
+        /*
         const { data: profile } = await supabase
             .from('profiles')
             .select('role')
@@ -99,6 +106,7 @@ export async function middleware(request: NextRequest) {
             // Redirect unauthorized users to portal
             return NextResponse.redirect(new URL('/portal', request.url))
         }
+        */
     }
 
     return response

@@ -137,6 +137,9 @@ export default function LoginPage() {
                         </Button>
 
                         <div className="mt-4 text-center flex flex-col gap-2">
+                            <p className="text-xs text-amber-600 font-bold">
+                                🔓 [DEV] Admin access open for everyone
+                            </p>
                             <p className="text-xs text-[#07305B]/60">
                                 Admin access? <button type="button" className="underline font-semibold hover:text-[#07305B]" onClick={() => setStep("password")}>Sign in with password</button>
                             </p>
