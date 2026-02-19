@@ -89,9 +89,11 @@ export async function middleware(request: NextRequest) {
             return response
         }
 
+        /*
         if (!session) {
             return NextResponse.redirect(new URL('/login', request.url)) // Unified login
         }
+        */
 
         // Strict Role Check for Admin Routes
         // [DEV] Fake Admin Access: Allow everyone in.
