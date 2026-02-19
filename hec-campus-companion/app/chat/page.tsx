@@ -2,28 +2,33 @@
 
 import { School, ArrowUp, Paperclip, ThumbsUp, ThumbsDown, Copy, Volume2, Sparkles, MessageSquare, AlertCircle } from "lucide-react"
 import { BottomNav } from "@/components/bottom-nav"
-import { useChat } from '@ai-sdk/react'
+import { useChat } from 'ai/react'
 import { createTicket } from '@/app/actions/ticket'
 import { useState, useRef, useEffect } from 'react'
 import { cn } from "@/lib/utils"
 
 export default function ChatPage() {
-    const { messages, sendMessage, status } = useChat()
-    const isLoading = status === 'submitted' || status === 'streaming'
+    const { messages, append, status, input, handleInputChange, handleSubmit: handleAiSubmit } = useChat()
+    const isLoading = status === 'loading' // v3 status check
 
-    const [input, setInput] = useState('')
+    // We can use the SDK's input management or sync it. 
+    // The current UI uses a manual input state 'input' (variable name conflict with SDK).
+    // Let's rely on SDK's input handling if possible, OR just use append manually.
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setInput(e.target.value)
+    // Manual Input State to keep UI control valid
+    const [localInput, setLocalInput] = useState('')
+
+    const handleLocalInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setLocalInput(e.target.value)
     }
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleManualSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        if (!input.trim()) return
+        if (!localInput.trim()) return
 
-        // Vercel AI SDK v6+ uses sendMessage with text property
-        await sendMessage({ text: input })
-        setInput('')
+        // v3 API: append({ role, content })
+        await append({ role: 'user', content: localInput })
+        setLocalInput('')
     }
     const messagesEndRef = useRef<HTMLDivElement>(null)
 
@@ -193,16 +198,16 @@ export default function ChatPage() {
             {/* Input Area */}
             <div className="fixed bottom-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-t border-slate-100 pb-8 px-4 pt-4 shadow-[0_-4px_24px_-2px_rgba(0,0,0,0.04)]">
                 <div className="max-w-2xl mx-auto mb-5">
-                    <form onSubmit={handleSubmit} className="bg-white rounded-[4px] border border-slate-200 shadow-xl flex items-center p-2 gap-2 transition-shadow focus-within:shadow-2xl focus-within:border-[#0e63be]/30">
+                    <form onSubmit={handleManualSubmit} className="bg-white rounded-[4px] border border-slate-200 shadow-xl flex items-center p-2 gap-2 transition-shadow focus-within:shadow-2xl focus-within:border-[#0e63be]/30">
                         <button type="button" className="p-2 text-slate-400 hover:text-[#0e63be] transition-colors"><Paperclip size={20} /></button>
                         <input
-                            value={input}
-                            onChange={handleInputChange}
+                            value={localInput}
+                            onChange={handleLocalInputChange}
                             className="flex-1 border-none focus:ring-0 text-sm text-slate-600 bg-transparent font-serif placeholder:text-slate-400 outline-none"
-                            placeholder="Type your request..."
+                            placeholder="Type your request... (AI SDK v3 Stable)"
                             type="text"
                         />
-                        <button type="submit" disabled={isLoading || !input.trim()} className="bg-[#0e63be] h-10 w-10 rounded-[4px] flex items-center justify-center text-white active:scale-95 transition-transform shadow-lg shadow-[#0e63be]/20 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <button type="submit" disabled={isLoading || !localInput.trim()} className="bg-[#0e63be] h-10 w-10 rounded-[4px] flex items-center justify-center text-white active:scale-95 transition-transform shadow-lg shadow-[#0e63be]/20 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed">
                             <ArrowUp size={20} />
                         </button>
                     </form>
