@@ -63,86 +63,89 @@ export default function LandingPage() {
 
                 <FutureExpansion />
 
-                <section className="flex flex-col gap-8 mt-4">
+                {/* Banner Image above Our Story */}
+                <div className="w-full h-48 bg-cover bg-center sharp-corners" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070&auto=format&fit=crop')" }}></div>
+
+                <section className="flex flex-col gap-8 mt-2">
                     {/* Our Story Section */}
-                    <div className="bg-white sharp-corners p-6 border border-[#07305B]/10 shadow-sm relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-[#07305B]/5 rounded-bl-[100px] pointer-events-none"></div>
-                        <span className="text-[10px] font-bold text-accent uppercase tracking-[0.2em] block mb-2">Our Story</span>
-                        <h3 className="font-serif text-2xl font-medium leading-tight mb-4 text-[#07305B]">Why we built this</h3>
-                        <p className="text-[#07305B]/80 text-sm leading-relaxed mb-6">
+                    <div className="bg-white sharp-corners p-8 shadow-sm relative overflow-hidden border border-slate-100">
+                        <div className="absolute top-0 right-0 w-48 h-48 bg-[#07305B]/5 rounded-bl-[150px] pointer-events-none"></div>
+                        <span className="text-[10px] font-bold text-[#0048E5] uppercase tracking-[0.2em] block mb-3">Our Story</span>
+                        <h3 className="font-serif text-[28px] font-medium leading-tight mb-5 text-[#07305B]">Why we built this</h3>
+                        <p className="text-slate-600 text-sm leading-[1.6] mb-8 font-light">
                             Let&apos;s be honest: navigating life on the Jouy-en-Josas campus shouldn&apos;t be a puzzle. Between missing the last shuttle to Versailles and digging through endless PDFs to find basic campus info, we&apos;ve all been there. Campus Companion was born from this exact frustration. It&apos;s built by students, for students—one single hub to eliminate the friction and get you the answers you need, instantly.
                         </p>
-                        <div className="flex flex-col gap-2 pt-4 border-t border-[#07305B]/10">
-                            <span className="text-[10px] uppercase font-bold text-[#07305B]/40 tracking-widest">Backed by the ecosystem of:</span>
-                            <div className="flex items-center gap-4 opacity-70 grayscale">
-                                <span className="font-serif font-bold text-sm text-[#07305B]">IP Paris</span>
-                                <span className="text-xs text-[#07305B]">|</span>
-                                <span className="font-serif font-bold text-sm text-[#07305B]">Hi! PARIS</span>
+                        <div className="flex flex-col gap-3 pt-6 border-t border-slate-100">
+                            <span className="text-[9px] uppercase font-bold text-slate-400 tracking-[0.15em]">Backed by the ecosystem of:</span>
+                            <div className="flex items-center gap-4 text-slate-500">
+                                <span className="font-serif font-bold text-sm">IP Paris</span>
+                                <span className="text-sm font-light text-slate-300">|</span>
+                                <span className="font-serif font-bold text-sm">Hi! PARIS</span>
                             </div>
                         </div>
                     </div>
 
                     {/* The Team Section */}
-                    <div className="flex flex-col gap-4">
-                        <div className="flex items-center gap-3 mb-2">
-                            <h3 className="font-serif text-2xl font-medium text-[#07305B]">The Team</h3>
-                            <div className="h-[1px] flex-1 bg-[#07305B]/10"></div>
+                    <div className="flex flex-col gap-4 mt-6">
+                        <div className="flex items-center gap-4 mb-2">
+                            <h3 className="font-serif text-[28px] font-medium text-[#07305B]">The Team</h3>
+                            <div className="h-[1px] flex-1 bg-slate-200"></div>
                         </div>
 
                         {/* Founder Card */}
-                        <div className="glass-panel sharp-corners p-5 flex gap-4 items-start bg-white shadow-sm border border-[#07305B]/10 hover:border-[#07305B]/20 transition-colors">
-                            <div className="w-16 h-16 shrink-0 bg-[#07305B] flex items-center justify-center text-white font-serif text-xl border-2 border-white shadow-md">
+                        <div className="bg-white sharp-corners p-6 border border-slate-100 shadow-sm flex gap-5 items-start">
+                            <div className="w-20 h-20 shrink-0 bg-[#07305B] flex items-center justify-center text-white font-serif text-2xl shadow-[0_4px_12px_rgba(7,48,91,0.2)]">
                                 YC
                             </div>
-                            <div className="flex flex-col gap-1">
-                                <h4 className="font-serif font-bold text-[#07305B] text-lg leading-none mt-1">Yusu Chen</h4>
-                                <span className="text-[10px] font-bold text-accent uppercase tracking-widest mb-1">Founder & Product</span>
-                                <p className="text-[#07305B]/70 text-xs leading-relaxed">
+                            <div className="flex flex-col pt-1">
+                                <h4 className="font-serif font-bold text-[#07305B] text-xl leading-none mb-1">Yusu Chen</h4>
+                                <span className="text-[10px] font-bold text-[#0048E5] uppercase tracking-[0.15em] mb-3 block">Founder & Product</span>
+                                <p className="text-slate-600 text-sm font-light leading-[1.6]">
                                     HEC MBA Student S24. Passionate about AI and tech. Building the tool we always needed on campus.
                                 </p>
                             </div>
                         </div>
 
                         {/* Tech Card */}
-                        <div className="glass-panel sharp-corners p-5 flex flex-col gap-3 items-start bg-white shadow-sm border border-[#07305B]/10 hover:border-[#07305B]/20 transition-colors">
-                            <div className="flex items-center gap-3 w-full">
-                                <div className="w-10 h-10 shrink-0 bg-slate-100 flex items-center justify-center text-[#07305B]/60">
-                                    <Code size={20} />
+                        <div className="bg-white sharp-corners p-6 border border-slate-100 shadow-sm flex flex-col items-start">
+                            <div className="flex gap-5 items-start w-full">
+                                <div className="w-16 h-16 shrink-0 bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400">
+                                    <Code size={24} strokeWidth={1.5} />
                                 </div>
-                                <div className="flex flex-col">
-                                    <h4 className="font-serif font-bold text-[#07305B] leading-none">Lead Developer</h4>
-                                    <span className="text-[9px] font-bold text-[#07305B]/50 uppercase tracking-widest mt-1">Tech Team</span>
+                                <div className="flex flex-col pt-0 flex-1">
+                                    <h4 className="font-serif font-bold text-[#07305B] text-xl leading-none mb-1">Lead Developer</h4>
+                                    <span className="text-[10px] font-bold text-[#0048E5] uppercase tracking-[0.15em] mb-3 block">Tech Team</span>
+                                    <p className="text-slate-600 text-sm font-light leading-[1.6]">
+                                        Are you from IP Paris or HEC and dream in code? Join us to scale the AI, connect the APIs, and build the ultimate campus app.
+                                    </p>
+                                    <a href="https://tally.so/r/687pyO" target="_blank" rel="noopener noreferrer" className="w-full mt-4 block">
+                                        <Button className="w-full bg-[#07305B] text-white text-[10px] font-bold uppercase tracking-widest h-12 sharp-corners rounded-none hover:bg-[#07305B]/90">
+                                            Apply for Tech
+                                        </Button>
+                                    </a>
                                 </div>
                             </div>
-                            <p className="text-[#07305B]/70 text-xs leading-relaxed">
-                                Are you from IP Paris or HEC and dream in code? Join us to scale the AI, connect the APIs, and build the ultimate campus app.
-                            </p>
-                            <a href="https://tally.so/r/687pyO" target="_blank" rel="noopener noreferrer" className="w-full mt-2">
-                                <Button className="w-full bg-[#07305B] text-white text-[10px] font-bold uppercase tracking-widest h-10 sharp-corners rounded-none hover:bg-[#07305B]/90">
-                                    Apply for Tech
-                                </Button>
-                            </a>
                         </div>
 
                         {/* Ops Card */}
-                        <div className="glass-panel sharp-corners p-5 flex flex-col gap-3 items-start bg-white shadow-sm border border-[#07305B]/10 hover:border-[#07305B]/20 transition-colors">
-                            <div className="flex items-center gap-3 w-full">
-                                <div className="w-10 h-10 shrink-0 bg-slate-100 flex items-center justify-center text-accent/80">
-                                    <UserPlus size={20} />
+                        <div className="bg-white sharp-corners p-6 border border-slate-100 shadow-sm flex flex-col items-start">
+                            <div className="flex gap-5 items-start w-full">
+                                <div className="w-16 h-16 shrink-0 bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400">
+                                    <UserPlus size={24} strokeWidth={1.5} />
                                 </div>
-                                <div className="flex flex-col">
-                                    <h4 className="font-serif font-bold text-[#07305B] leading-none">Campus Ops & Growth</h4>
-                                    <span className="text-[9px] font-bold text-[#07305B]/50 uppercase tracking-widest mt-1">Operations</span>
+                                <div className="flex flex-col pt-0 flex-1">
+                                    <h4 className="font-serif font-bold text-[#07305B] text-xl leading-none mb-1">Campus Ops & Growth</h4>
+                                    <span className="text-[10px] font-bold text-[#0048E5] uppercase tracking-[0.15em] mb-3 block">Operations</span>
+                                    <p className="text-slate-600 text-sm font-light leading-[1.6]">
+                                        Know the campus inside out? Help us deploy the app, grow our user base, and connect the dots across the Jouy ecosystem.
+                                    </p>
+                                    <a href="https://tally.so/r/687pyO" target="_blank" rel="noopener noreferrer" className="w-full mt-4 block">
+                                        <Button className="w-full bg-slate-100 text-[#07305B] hover:bg-slate-200 border border-slate-200 text-[10px] font-bold uppercase tracking-widest h-12 sharp-corners shadow-none rounded-none">
+                                            Apply for Ops
+                                        </Button>
+                                    </a>
                                 </div>
                             </div>
-                            <p className="text-[#07305B]/70 text-xs leading-relaxed">
-                                Know the campus inside out? Help us deploy the app, grow our user base, and connect the dots across the Jouy ecosystem.
-                            </p>
-                            <a href="https://tally.so/r/687pyO" target="_blank" rel="noopener noreferrer" className="w-full mt-2">
-                                <Button className="w-full bg-accent text-white hover:bg-accent/90 border border-accent text-[10px] font-bold uppercase tracking-widest h-10 sharp-corners shadow-md rounded-none">
-                                    Apply for Ops
-                                </Button>
-                            </a>
                         </div>
                     </div>
                 </section>
