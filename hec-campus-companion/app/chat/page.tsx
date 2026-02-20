@@ -27,6 +27,7 @@ export default function ChatPage() {
     handleSubmit: handleAiSubmit,
     isLoading,
     error,
+    append,
   } = useChat({
     api: "/api/chat",
     onError: (err) => {
@@ -73,7 +74,7 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="bg-slate-50 font-display text-slate-800 overflow-x-hidden min-h-screen">
+    <div className="bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-100 via-slate-50 to-slate-50 font-display text-slate-800 overflow-x-hidden min-h-screen">
       {/* Header */}
       <div className="fixed top-0 left-0 right-0 z-50 pt-12 pb-4 px-6 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm flex justify-center">
         <div className="flex items-center justify-between w-full max-w-3xl">
@@ -101,23 +102,28 @@ export default function ChatPage() {
         </div>
 
         {messages.length === 0 && (
-          <div className="flex flex-col gap-1 max-w-[85%] mr-auto">
-            <div className="flex items-center gap-2 mb-1 pl-1">
-              <div className="h-7 w-7 bg-blue-900 rounded-full flex items-center justify-center shadow-sm">
-                <Sparkles size={14} className="text-white" />
-              </div>
-              <span className="text-[11px] font-bold text-slate-500 uppercase tracking-widest">
-                Campus Companion
-              </span>
-            </div>
-            <div className="bg-transparent px-2 pt-1 pb-4">
-              <p className="text-[16px] text-slate-800 leading-relaxed font-sans">
-                Welcome to HEC Paris! 👋 <br />
-                <br />
-                I'm your intelligent Campus Companion. I can help you find
-                shuttle schedules, library hours, IT support, and administrative
-                information. How can I help you today?
-              </p>
+          <div className="flex flex-col items-center justify-center pt-10 pb-8 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-blue-900 mb-3 tracking-tight">
+              Good morning. I'm your Campus Companion.
+            </h2>
+            <p className="text-[16px] text-slate-500 font-sans tracking-wide mb-10 max-w-lg">
+              How can I help you navigate the campus today?
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-3 max-w-2xl px-2">
+              {[
+                "🚌 Next shuttle to Massy",
+                "IT How to connect to Eduroam",
+                "📚 Book a library room",
+              ].map((prompt, i) => (
+                <button
+                  key={i}
+                  onClick={() => append({ role: "user", content: prompt })}
+                  className="px-5 py-2.5 bg-white border border-gray-200/80 rounded-full text-[14px] text-slate-600 font-medium shadow-sm hover:shadow-md hover:bg-slate-50 hover:border-gray-300 hover:text-blue-900 transition-all active:scale-[0.98]"
+                >
+                  {prompt.replace(/^(🚌|IT|📚)\s*/, "")}
+                </button>
+              ))}
             </div>
           </div>
         )}
@@ -289,15 +295,15 @@ export default function ChatPage() {
       </main>
 
       {/* Input Area */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 bg-gradient-to-t from-slate-50 via-slate-50 to-transparent pb-6 px-4 pt-10">
-        <div className="max-w-3xl mx-auto flex flex-col items-center">
+      <div className="fixed bottom-0 left-0 right-0 z-50 bg-gradient-to-t from-slate-50/80 via-slate-50/50 to-transparent pb-6 px-4 pt-10 pointer-events-none">
+        <div className="max-w-3xl mx-auto flex flex-col items-center pointer-events-auto">
           <form
             onSubmit={handleAiSubmit}
-            className="w-full bg-white rounded-3xl border border-gray-200 shadow-xl flex items-center p-2.5 gap-3 transition-all duration-300 focus-within:shadow-2xl focus-within:border-blue-900/30"
+            className="w-full bg-white/80 backdrop-blur-xl rounded-3xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex items-center p-2.5 gap-3 transition-all duration-300 focus-within:shadow-[0_8px_30px_rgba(14,99,190,0.12)] focus-within:border-blue-900/20 focus-within:bg-white"
           >
             <button
               type="button"
-              className="p-2.5 bg-slate-50 rounded-full text-slate-400 hover:text-blue-900 hover:bg-blue-50 transition-colors"
+              className="p-2.5 bg-slate-100/50 rounded-full text-slate-400 hover:text-blue-900 hover:bg-blue-50 transition-colors"
             >
               <Paperclip size={18} className="stroke-[2px]" />
             </button>
