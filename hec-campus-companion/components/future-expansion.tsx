@@ -44,11 +44,11 @@ export function FutureExpansion() {
                     </div>
                 </div>
 
-                <Link href="/waitlist">
+                <a href="https://tally.so/r/jayJv6" target="_blank" rel="noopener noreferrer">
                     <Button className="bg-[#07305B] text-white hover:bg-accent hover:shadow-lg text-xs font-bold uppercase tracking-widest px-8 py-6 sharp-corners transition-all duration-300 shadow-md">
                         Bring Campus Companion to my school
                     </Button>
-                </Link>
+                </a>
             </div>
         </section>
     )

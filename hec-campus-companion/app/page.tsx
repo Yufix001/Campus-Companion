@@ -117,7 +117,7 @@ export default function LandingPage() {
                             <p className="text-[#07305B]/70 text-xs leading-relaxed">
                                 Are you from IP Paris or HEC and dream in code? Join us to scale the AI, connect the APIs, and build the ultimate campus app.
                             </p>
-                            <a href="https://tally.so/r/jayJv6" target="_blank" rel="noopener noreferrer" className="w-full mt-2">
+                            <a href="https://tally.so/r/687pyO" target="_blank" rel="noopener noreferrer" className="w-full mt-2">
                                 <Button className="w-full bg-[#07305B] text-white text-[10px] font-bold uppercase tracking-widest h-10 sharp-corners rounded-none hover:bg-[#07305B]/90">
                                     Apply for Tech
                                 </Button>
@@ -138,7 +138,7 @@ export default function LandingPage() {
                             <p className="text-[#07305B]/70 text-xs leading-relaxed">
                                 Know the campus inside out? Help us deploy the app, grow our user base, and connect the dots across the Jouy ecosystem.
                             </p>
-                            <a href="https://tally.so/r/jayJv6" target="_blank" rel="noopener noreferrer" className="w-full mt-2">
+                            <a href="https://tally.so/r/687pyO" target="_blank" rel="noopener noreferrer" className="w-full mt-2">
                                 <Button className="w-full bg-accent text-white hover:bg-accent/90 border border-accent text-[10px] font-bold uppercase tracking-widest h-10 sharp-corners shadow-md rounded-none">
                                     Apply for Ops
                                 </Button>
