@@ -68,19 +68,22 @@ export default function ChatPage() {
     }
 
     return (
-        <div className="bg-[#F8F9FB] font-display text-slate-800 overflow-x-hidden min-h-screen">
+        <div className="bg-slate-50 font-display text-slate-800 overflow-x-hidden min-h-screen">
             {/* Header */}
-            <div className="fixed top-0 left-0 right-0 z-50 pt-12 pb-4 px-6 bg-white border-b border-slate-100 flex items-center justify-between shadow-sm">
-                <div className="flex items-center gap-2">
-                    <School className="text-[#0e63be]" size={28} />
-                    <h1 className="font-serif text-xl font-bold text-slate-900">HEC Assistant</h1>
-                </div>
-                <div className="h-10 w-10 rounded-full border border-slate-200 overflow-hidden">
-                    <div className="h-full w-full bg-slate-200"></div>
+            <div className="fixed top-0 left-0 right-0 z-50 pt-12 pb-4 px-6 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm flex justify-center">
+                <div className="flex items-center justify-between w-full max-w-3xl">
+                    <div className="flex items-center gap-3">
+                        <School className="text-blue-900" size={28} />
+                        <h1 className="font-serif text-xl font-bold text-slate-900">Campus Companion</h1>
+                    </div>
+                    <button onClick={() => window.location.reload()} className="h-9 px-4 rounded-full border border-gray-200 text-[13px] font-semibold text-slate-600 hover:bg-slate-50 hover:text-blue-900 transition-colors flex items-center gap-2 shadow-sm">
+                        <MessageSquare size={14} />
+                        New Chat
+                    </button>
                 </div>
             </div>
 
-            <main className="pt-32 pb-48 px-4 max-w-2xl mx-auto space-y-8">
+            <main className="pt-32 pb-48 px-4 max-w-3xl mx-auto space-y-8">
                 <div className="flex justify-center">
                     <span className="bg-white px-4 py-1.5 rounded-lg text-[11px] font-semibold text-slate-400 border border-slate-100 shadow-sm uppercase tracking-wider">Today</span>
                 </div>
@@ -88,15 +91,15 @@ export default function ChatPage() {
                 {messages.length === 0 && (
                     <div className="flex flex-col gap-1 max-w-[85%] mr-auto">
                         <div className="flex items-center gap-2 mb-1 pl-1">
-                            <div className="h-6 w-6 bg-[#0e63be]/10 rounded-full flex items-center justify-center">
-                                <Sparkles size={14} className="text-[#0e63be]" />
+                            <div className="h-7 w-7 bg-blue-900 rounded-full flex items-center justify-center shadow-sm">
+                                <Sparkles size={14} className="text-white" />
                             </div>
-                            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Assistant</span>
+                            <span className="text-[11px] font-bold text-slate-500 uppercase tracking-widest">Campus Companion</span>
                         </div>
-                        <div className="bg-white border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] rounded-[20px] rounded-tl-[4px] p-5">
-                            <p className="text-[15px] text-slate-700 leading-relaxed font-sans">
+                        <div className="bg-transparent px-2 pt-1 pb-4">
+                            <p className="text-[16px] text-slate-800 leading-relaxed font-sans">
                                 Welcome to HEC Paris! 👋 <br /><br />
-                                I'm your intelligent Campus Assistant. I can help you find shuttle schedules, library hours, IT support, and administrative information. How can I help you today?
+                                I'm your intelligent Campus Companion. I can help you find shuttle schedules, library hours, IT support, and administrative information. How can I help you today?
                             </p>
                         </div>
                     </div>
@@ -116,21 +119,21 @@ export default function ChatPage() {
                                     </>
                                 ) : (
                                     <>
-                                        <div className="h-6 w-6 bg-[#0e63be]/10 rounded-full flex items-center justify-center">
-                                            <Sparkles size={14} className="text-[#0e63be]" />
+                                        <div className="h-7 w-7 bg-blue-900 rounded-full flex items-center justify-center shadow-sm">
+                                            <Sparkles size={14} className="text-white" />
                                         </div>
-                                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Assistant</span>
+                                        <span className="text-[11px] font-bold text-slate-500 uppercase tracking-widest">Campus Companion</span>
                                     </>
                                 )}
                             </div>
 
                             <div className={cn(
-                                "shadow-sm p-4 text-[15px] leading-relaxed",
+                                "p-3 text-[16px] leading-relaxed font-sans",
                                 m.role === 'user'
-                                    ? "bg-gradient-to-br from-[#0e63be] to-[#0a4a8f] text-white rounded-[20px] rounded-tr-[4px] shadow-md shadow-[#0e63be]/20"
-                                    : "bg-white border border-slate-100 text-slate-700 rounded-[20px] rounded-tl-[4px] shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)]"
+                                    ? "bg-blue-900 text-white rounded-2xl rounded-br-[4px] shadow-sm ml-4"
+                                    : "bg-transparent text-slate-800 pr-4"
                             )}>
-                                <div className="whitespace-pre-wrap font-sans">
+                                <div className="whitespace-pre-wrap">
                                     {/* Simple citation parsing logic: look for [1], [2] etc */}
                                     {content.split(/(\[\d+\])/g).map((part: string, i: number) => {
                                         if (/^\[\d+\]$/.test(part)) {
@@ -138,8 +141,8 @@ export default function ChatPage() {
                                                 <span key={i} className={cn(
                                                     "inline-flex items-center justify-center font-semibold text-[11px] px-1.5 py-0.5 rounded-md mx-0.5 align-text-top cursor-pointer transition-colors shadow-sm",
                                                     m.role === 'user'
-                                                        ? "text-[#0e63be] bg-white hover:bg-slate-50"
-                                                        : "text-white bg-[#0e63be] hover:bg-blue-700"
+                                                        ? "text-blue-900 bg-white hover:bg-slate-100"
+                                                        : "text-white bg-blue-900 hover:bg-blue-800"
                                                 )}>
                                                     Source {part.replace(/[\[\]]/g, '')}
                                                 </span>
@@ -209,10 +212,10 @@ export default function ChatPage() {
                 {isLoading && (
                     <div className="flex flex-col gap-1 max-w-[85%] mr-auto">
                         <div className="flex items-center gap-2 mb-1 pl-1">
-                            <div className="h-6 w-6 bg-[#0e63be]/10 rounded-full flex items-center justify-center animate-pulse">
-                                <Sparkles size={14} className="text-[#0e63be]" />
+                            <div className="h-7 w-7 bg-blue-900 rounded-full flex items-center justify-center animate-pulse shadow-sm">
+                                <Sparkles size={14} className="text-white" />
                             </div>
-                            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Assistant is thinking...</span>
+                            <span className="text-[11px] font-bold text-slate-500 uppercase tracking-widest">Campus Companion is thinking...</span>
                         </div>
                     </div>
                 )}
@@ -221,21 +224,22 @@ export default function ChatPage() {
             </main>
 
             {/* Input Area */}
-            <div className="fixed bottom-0 left-0 right-0 z-50 bg-white/sn backdrop-blur-xl border-t border-slate-100 pb-6 px-4 pt-4 shadow-[0_-10px_40px_-10px_rgba(0,0,0,0.05)]">
-                <div className="max-w-2xl mx-auto mb-2">
-                    <form onSubmit={handleManualSubmit} className="bg-white rounded-2xl border border-slate-200/60 shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex items-center p-2.5 gap-3 transition-all duration-300 focus-within:shadow-[0_8px_30px_rgba(14,99,190,0.12)] focus-within:border-[#0e63be]/30">
-                        <button type="button" className="p-2.5 bg-slate-50 rounded-full text-slate-400 hover:text-[#0e63be] hover:bg-[#0e63be]/5 transition-colors"><Paperclip size={18} /></button>
+            <div className="fixed bottom-0 left-0 right-0 z-50 bg-gradient-to-t from-slate-50 via-slate-50 to-transparent pb-6 px-4 pt-10">
+                <div className="max-w-3xl mx-auto flex flex-col items-center">
+                    <form onSubmit={handleManualSubmit} className="w-full bg-white rounded-3xl border border-gray-200 shadow-xl flex items-center p-2.5 gap-3 transition-all duration-300 focus-within:shadow-2xl focus-within:border-blue-900/30">
+                        <button type="button" className="p-2.5 bg-slate-50 rounded-full text-slate-400 hover:text-blue-900 hover:bg-blue-50 transition-colors"><Paperclip size={18} className="stroke-[2px]" /></button>
                         <input
                             value={localInput}
                             onChange={handleLocalInputChange}
-                            className="flex-1 border-none focus:ring-0 text-[15px] text-slate-700 bg-transparent placeholder:text-slate-400 outline-none"
-                            placeholder="Ask me anything about HEC Paris..."
+                            className="flex-1 border-none focus:ring-0 text-[16px] text-slate-800 bg-transparent placeholder:text-slate-400 outline-none"
+                            placeholder="Ask Campus Companion..."
                             type="text"
                         />
-                        <button type="submit" disabled={isLoading || !localInput.trim()} className="bg-[#0e63be] h-[42px] w-[42px] rounded-full flex items-center justify-center text-white active:scale-95 transition-all shadow-md shadow-[#0e63be]/25 hover:bg-blue-700 disabled:opacity-50 disabled:shadow-none disabled:cursor-not-allowed">
+                        <button type="submit" disabled={isLoading || !localInput.trim()} className="bg-blue-900 h-[42px] w-[42px] rounded-full flex items-center justify-center text-white active:scale-95 transition-all shadow-md hover:bg-blue-800 disabled:opacity-50 disabled:shadow-none disabled:cursor-not-allowed">
                             <ArrowUp size={20} className="stroke-[2.5px]" />
                         </button>
                     </form>
+                    <p className="mt-4 text-[11px] text-slate-400 font-sans tracking-wide">Campus Companion can make mistakes. Verify important academic information.</p>
                 </div>
             </div>
         </div>
