@@ -196,15 +196,8 @@ export default function ChatPage() {
                       return part;
                     })}
                 </div>
-
                 {m.role === "assistant" && (
-                  <div className="pt-3 flex items-center justify-between border-t border-slate-50 mt-2">
-                    <div className="flex gap-2">
-                      {/* Mock PDF Reference Button */}
-                      <button className="h-6 px-2 bg-slate-50 border border-slate-100 rounded text-[9px] font-bold text-slate-500 uppercase tracking-tight hover:bg-slate-100 transition-colors flex items-center gap-1">
-                        <span className="text-[10px]">📄</span> PDF Reference
-                      </button>
-                    </div>
+                  <div className="pt-3 flex items-center justify-end border-t border-slate-50 mt-2">
                     <div className="flex gap-2">
                       <button className="text-slate-300 hover:text-[#0e63be] transition-colors p-1">
                         <Copy size={16} />
@@ -213,50 +206,6 @@ export default function ChatPage() {
                   </div>
                 )}
               </div>
-
-              {m.role === "assistant" && (
-                <div className="flex items-center justify-between px-2 pt-1 opacity-80 hover:opacity-100 transition-opacity w-full">
-                  <div className="flex items-center gap-3">
-                    <span
-                      className={cn(
-                        "text-[10px] font-medium uppercase tracking-widest",
-                        feedbackStatus ? "text-[#0e63be]" : "text-slate-400",
-                      )}
-                    >
-                      {feedbackStatus || "Was this helpful?"}
-                    </span>
-                    {!feedbackStatus && (
-                      <div className="flex gap-1">
-                        <button
-                          aria-label="Thumbs up"
-                          className="p-1 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors group"
-                        >
-                          <ThumbsUp
-                            size={18}
-                            className="group-hover:scale-110 transition-transform"
-                          />
-                        </button>
-                        <button
-                          aria-label="Report issue"
-                          onClick={() =>
-                            handleTicketCreation(
-                              getMessageContent(messages[index - 1] || {}),
-                              content,
-                            )
-                          }
-                          className="p-1 rounded-full hover:bg-red-50 text-slate-400 hover:text-red-500 transition-colors group"
-                          title="Report issue / Create Ticket"
-                        >
-                          <ThumbsDown
-                            size={18}
-                            className="group-hover:scale-110 transition-transform"
-                          />
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )}
             </div>
           );
         })}
