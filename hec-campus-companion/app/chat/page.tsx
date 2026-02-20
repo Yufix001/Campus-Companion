@@ -2,38 +2,19 @@
 
 import { School, ArrowUp, Paperclip, ThumbsUp, ThumbsDown, Copy, Volume2, Sparkles, MessageSquare, AlertCircle } from "lucide-react"
 // Removed BottomNav from imports
-import { useChat } from '@ai-sdk/react'
+import { useChat } from 'ai/react'
 import { createTicket } from '@/app/actions/ticket'
 import { useState, useRef, useEffect } from 'react'
 import { cn } from "@/lib/utils"
 
 export default function ChatPage() {
-    const { messages, append, isLoading, error, input, handleInputChange, handleSubmit: handleAiSubmit } = useChat({
+    // Use the native SDK state directly
+    const { messages, input, handleInputChange, handleSubmit: handleAiSubmit, isLoading, error } = useChat({
+        api: '/api/chat',
         onError: (err) => {
             console.error("Chat API Error:", err);
         }
     })
-
-    // We can use the SDK's input management or sync it. 
-    // The current UI uses a manual input state 'input' (variable name conflict with SDK).
-    // Let's rely on SDK's input handling if possible, OR just use append manually.
-
-    // Manual Input State to keep UI control valid
-    const [localInput, setLocalInput] = useState('')
-
-    const handleLocalInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setLocalInput(e.target.value)
-    }
-
-    const handleManualSubmit = async (e: React.FormEvent) => {
-        e.preventDefault()
-        if (!localInput.trim()) return
-
-        const currentInput = localInput
-        setLocalInput('')
-
-        await append({ role: 'user', content: currentInput })
-    }
     const messagesEndRef = useRef<HTMLDivElement>(null)
 
     // Feedback state
@@ -226,16 +207,16 @@ export default function ChatPage() {
             {/* Input Area */}
             <div className="fixed bottom-0 left-0 right-0 z-50 bg-gradient-to-t from-slate-50 via-slate-50 to-transparent pb-6 px-4 pt-10">
                 <div className="max-w-3xl mx-auto flex flex-col items-center">
-                    <form onSubmit={handleManualSubmit} className="w-full bg-white rounded-3xl border border-gray-200 shadow-xl flex items-center p-2.5 gap-3 transition-all duration-300 focus-within:shadow-2xl focus-within:border-blue-900/30">
+                    <form onSubmit={handleAiSubmit} className="w-full bg-white rounded-3xl border border-gray-200 shadow-xl flex items-center p-2.5 gap-3 transition-all duration-300 focus-within:shadow-2xl focus-within:border-blue-900/30">
                         <button type="button" className="p-2.5 bg-slate-50 rounded-full text-slate-400 hover:text-blue-900 hover:bg-blue-50 transition-colors"><Paperclip size={18} className="stroke-[2px]" /></button>
                         <input
-                            value={localInput}
-                            onChange={handleLocalInputChange}
+                            value={input}
+                            onChange={handleInputChange}
                             className="flex-1 border-none focus:ring-0 text-[16px] text-slate-800 bg-transparent placeholder:text-slate-400 outline-none"
                             placeholder="Ask Campus Companion..."
                             type="text"
                         />
-                        <button type="submit" disabled={isLoading || !localInput.trim()} className="bg-blue-900 h-[42px] w-[42px] rounded-full flex items-center justify-center text-white active:scale-95 transition-all shadow-md hover:bg-blue-800 disabled:opacity-50 disabled:shadow-none disabled:cursor-not-allowed">
+                        <button type="submit" disabled={isLoading || !input.trim()} className="bg-blue-900 h-[42px] w-[42px] rounded-full flex items-center justify-center text-white active:scale-95 transition-all shadow-md hover:bg-blue-800 disabled:opacity-50 disabled:shadow-none disabled:cursor-not-allowed">
                             <ArrowUp size={20} className="stroke-[2.5px]" />
                         </button>
                     </form>
