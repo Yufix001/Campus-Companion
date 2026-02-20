@@ -1,15 +1,14 @@
 'use client'
 
 import { School, ArrowUp, Paperclip, ThumbsUp, ThumbsDown, Copy, Volume2, Sparkles, MessageSquare, AlertCircle } from "lucide-react"
-import { BottomNav } from "@/components/bottom-nav"
-import { useChat } from 'ai/react'
+// Removed BottomNav from imports
+import { useChat } from '@ai-sdk/react'
 import { createTicket } from '@/app/actions/ticket'
 import { useState, useRef, useEffect } from 'react'
 import { cn } from "@/lib/utils"
 
 export default function ChatPage() {
-    const { messages, append, status, input, handleInputChange, handleSubmit: handleAiSubmit } = useChat()
-    const isLoading = status === 'loading' // v3 status check
+    const { messages, append, isLoading, input, handleInputChange, handleSubmit: handleAiSubmit } = useChat()
 
     // We can use the SDK's input management or sync it. 
     // The current UI uses a manual input state 'input' (variable name conflict with SDK).
@@ -26,9 +25,10 @@ export default function ChatPage() {
         e.preventDefault()
         if (!localInput.trim()) return
 
-        // v3 API: append({ role, content })
-        await append({ role: 'user', content: localInput })
+        const currentInput = localInput
         setLocalInput('')
+
+        await append({ role: 'user', content: currentInput })
     }
     const messagesEndRef = useRef<HTMLDivElement>(null)
 
@@ -89,8 +89,11 @@ export default function ChatPage() {
                             </div>
                             <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Assistant</span>
                         </div>
-                        <div className="bg-white border border-slate-100 shadow-sm rounded-[4px] rounded-tl-none p-4">
-                            <p className="text-sm text-slate-700 leading-relaxed font-serif">Good afternoon. How may I assist with your academic schedule or research inquiries today?</p>
+                        <div className="bg-white border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] rounded-[20px] rounded-tl-[4px] p-5">
+                            <p className="text-[15px] text-slate-700 leading-relaxed font-sans">
+                                Welcome to HEC Paris! 👋 <br /><br />
+                                I'm your intelligent Campus Assistant. I can help you find shuttle schedules, library hours, IT support, and administrative information. How can I help you today?
+                            </p>
                         </div>
                     </div>
                 )}
@@ -118,19 +121,23 @@ export default function ChatPage() {
                             </div>
 
                             <div className={cn(
-                                "shadow-sm rounded-[4px] p-4 text-sm leading-relaxed font-serif",
-                                m.role === 'user' ? "bg-[#0e63be] text-white rounded-tr-none" : "bg-white border border-slate-100 text-slate-700 rounded-tl-none"
+                                "shadow-sm p-4 text-[15px] leading-relaxed",
+                                m.role === 'user'
+                                    ? "bg-gradient-to-br from-[#0e63be] to-[#0a4a8f] text-white rounded-[20px] rounded-tr-[4px] shadow-md shadow-[#0e63be]/20"
+                                    : "bg-white border border-slate-100 text-slate-700 rounded-[20px] rounded-tl-[4px] shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)]"
                             )}>
-                                <div className="whitespace-pre-wrap">
+                                <div className="whitespace-pre-wrap font-sans">
                                     {/* Simple citation parsing logic: look for [1], [2] etc */}
                                     {content.split(/(\[\d+\])/g).map((part: string, i: number) => {
                                         if (/^\[\d+\]$/.test(part)) {
                                             return (
                                                 <span key={i} className={cn(
-                                                    "inline-flex items-center justify-center font-bold text-[10px] px-1 rounded ml-0.5 align-top cursor-pointer transition-colors",
-                                                    m.role === 'user' ? "text-white bg-white/20 hover:bg-white/30" : "text-[#0e63be] bg-[#0e63be]/5 hover:bg-[#0e63be]/10"
+                                                    "inline-flex items-center justify-center font-semibold text-[11px] px-1.5 py-0.5 rounded-md mx-0.5 align-text-top cursor-pointer transition-colors shadow-sm",
+                                                    m.role === 'user'
+                                                        ? "text-[#0e63be] bg-white hover:bg-slate-50"
+                                                        : "text-white bg-[#0e63be] hover:bg-blue-700"
                                                 )}>
-                                                    {part}
+                                                    Source {part.replace(/[\[\]]/g, '')}
                                                 </span>
                                             )
                                         }
@@ -196,24 +203,22 @@ export default function ChatPage() {
             </main>
 
             {/* Input Area */}
-            <div className="fixed bottom-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-t border-slate-100 pb-8 px-4 pt-4 shadow-[0_-4px_24px_-2px_rgba(0,0,0,0.04)]">
-                <div className="max-w-2xl mx-auto mb-5">
-                    <form onSubmit={handleManualSubmit} className="bg-white rounded-[4px] border border-slate-200 shadow-xl flex items-center p-2 gap-2 transition-shadow focus-within:shadow-2xl focus-within:border-[#0e63be]/30">
-                        <button type="button" className="p-2 text-slate-400 hover:text-[#0e63be] transition-colors"><Paperclip size={20} /></button>
+            <div className="fixed bottom-0 left-0 right-0 z-50 bg-white/sn backdrop-blur-xl border-t border-slate-100 pb-6 px-4 pt-4 shadow-[0_-10px_40px_-10px_rgba(0,0,0,0.05)]">
+                <div className="max-w-2xl mx-auto mb-2">
+                    <form onSubmit={handleManualSubmit} className="bg-white rounded-2xl border border-slate-200/60 shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex items-center p-2.5 gap-3 transition-all duration-300 focus-within:shadow-[0_8px_30px_rgba(14,99,190,0.12)] focus-within:border-[#0e63be]/30">
+                        <button type="button" className="p-2.5 bg-slate-50 rounded-full text-slate-400 hover:text-[#0e63be] hover:bg-[#0e63be]/5 transition-colors"><Paperclip size={18} /></button>
                         <input
                             value={localInput}
                             onChange={handleLocalInputChange}
-                            className="flex-1 border-none focus:ring-0 text-sm text-slate-600 bg-transparent font-serif placeholder:text-slate-400 outline-none"
-                            placeholder="Type your request... (AI SDK v3 Stable)"
+                            className="flex-1 border-none focus:ring-0 text-[15px] text-slate-700 bg-transparent placeholder:text-slate-400 outline-none"
+                            placeholder="Ask me anything about HEC Paris..."
                             type="text"
                         />
-                        <button type="submit" disabled={isLoading || !localInput.trim()} className="bg-[#0e63be] h-10 w-10 rounded-[4px] flex items-center justify-center text-white active:scale-95 transition-transform shadow-lg shadow-[#0e63be]/20 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed">
-                            <ArrowUp size={20} />
+                        <button type="submit" disabled={isLoading || !localInput.trim()} className="bg-[#0e63be] h-[42px] w-[42px] rounded-full flex items-center justify-center text-white active:scale-95 transition-all shadow-md shadow-[#0e63be]/25 hover:bg-blue-700 disabled:opacity-50 disabled:shadow-none disabled:cursor-not-allowed">
+                            <ArrowUp size={20} className="stroke-[2.5px]" />
                         </button>
                     </form>
                 </div>
-
-                <BottomNav />
             </div>
         </div>
     )
