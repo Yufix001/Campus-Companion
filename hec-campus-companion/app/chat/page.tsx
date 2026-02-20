@@ -8,7 +8,11 @@ import { useState, useRef, useEffect } from 'react'
 import { cn } from "@/lib/utils"
 
 export default function ChatPage() {
-    const { messages, append, isLoading, input, handleInputChange, handleSubmit: handleAiSubmit } = useChat()
+    const { messages, append, isLoading, error, input, handleInputChange, handleSubmit: handleAiSubmit } = useChat({
+        onError: (err) => {
+            console.error("Chat API Error:", err);
+        }
+    })
 
     // We can use the SDK's input management or sync it. 
     // The current UI uses a manual input state 'input' (variable name conflict with SDK).
@@ -187,6 +191,20 @@ export default function ChatPage() {
                         </div>
                     )
                 })}
+
+                {error && (
+                    <div className="flex flex-col gap-1 max-w-[85%] mr-auto mb-4">
+                        <div className="flex items-center gap-2 mb-1 pl-1">
+                            <div className="h-6 w-6 bg-red-100 rounded-full flex items-center justify-center">
+                                <AlertCircle size={14} className="text-red-500" />
+                            </div>
+                            <span className="text-[10px] font-bold text-red-500 uppercase tracking-widest">Error</span>
+                        </div>
+                        <div className="bg-red-50 border border-red-100 shadow-sm rounded-[20px] rounded-tl-[4px] p-4 text-sm text-red-700">
+                            {error.message || "An error occurred connecting to the AI. Please verify your OpenAI API keys are correctly configured."}
+                        </div>
+                    </div>
+                )}
 
                 {isLoading && (
                     <div className="flex flex-col gap-1 max-w-[85%] mr-auto">
