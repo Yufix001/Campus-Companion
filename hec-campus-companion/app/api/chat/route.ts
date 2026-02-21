@@ -42,7 +42,7 @@ export async function POST(req: Request) {
     // 2. Perform similarity search in Supabase
     const { data: documents, error } = await supabase.rpc("match_documents", {
       query_embedding: embedding,
-      match_threshold: 0.5, // How similar the text needs to be (0.0 to 1.0)
+      match_threshold: 0.25, // Relaxed threshold to capture relevant chunks (text-embedding-3 usually scores 0.3-0.5)
       match_count: 3, // Retrieve the top 3 most relevant chunks
     });
 
@@ -70,10 +70,14 @@ export async function POST(req: Request) {
     }
 
     const systemPrompt = `You are a helpful, professional, and friendly virtual assistant for HEC Paris campus students. 
-Your goal is to answer student questions accurately based ONLY on the provided Context Documents. 
-If the answer is not in the documents, politely say you don't have that information right now and suggest they contact the administration directly. 
+Your goal is to assist students intelligently.
 
-When you use information from a document, YOU MUST insert a citation at the end of the sentence or paragraph in the format [1], [2], etc., corresponding to the Document number provided.
+CONTEXT MATTERS:
+Below are Context Documents retrieved from the campus database. 
+If these documents contain the answer or are relevant to the user's question, you MUST use them and prioritize them. 
+When you use information from a document, you MUST insert a citation at the end of the sentence or paragraph in the format [1], [2], etc., corresponding to the Document number provided.
+
+If the documents do not contain the answer, or if the question is conversational/general (e.g. "How to go to Orly?"), use your general intelligence to provide a helpful, smart answer. Do not blindly refuse to answer just because it's not in the context. Feel free to ask clarifying questions if needed.
 
 CONTEXT DOCUMENTS:
 ${contextText}
